@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+ul,ol {
+    list-style: none;
+    padding: 0;
+}
+.navbar-brand {
+  color: #EEF1FF;
+  font-weight: bold;
+  margin: auto 20px auto 0;
+  font-size: 1.5rem;
+}
+
+.navbar {
+    background: #1572A1;
+}
+.nav-item a {
+    color: #EEF1FF !important;
+}
+
+footer {
+    gap: 12px;
+    background: #1572A1;
+    color: #EEF1FF !important;
+}
+footer h3 {
+    margin: 20px 0;
+}
+footer ul li {
+    padding: 10px 20px;
+}
+footer ul li:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
