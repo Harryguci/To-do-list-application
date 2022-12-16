@@ -13,3 +13,6 @@
 
 # Database
 <p>MongoDB</p>
+
+# Running
+<p>npm start</p>
