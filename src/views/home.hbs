@@ -1,5 +1,89 @@
 <div class="container-fluid container-md mt-4">
     <div class="row">
-        <h1>Home page</h1>
+        <h1>To Day</h1>
+        {{!-- <span>{{{date_now}}}</span> --}}
+        <span class="date_now"></span>
+        <script>
+            var date_now = document.querySelector('.date_now');
+            date_now.innerHTML = Date.now().toStrings();
+        </script>
+    </div>
+    <div class="row mt-4">
+        {{#each work_today}}
+        <div class="col-md-3 col">
+            <div class="item">
+                <div class="item__head">
+                    <h3>{{this.type}}</h3>
+                    <span>{{this.short_description}}</span>
+                </div>
+                <div class="item__content">
+                    <ul>
+                        <li>
+                            <b class="label">Title: </b>
+                            <p>{{this.title}}</p>
+                        </li>
+                        <li>
+                            <b class="label">Time: </b>
+                            <p>{{this.time}}</p>
+                        </li>
+                        <li>
+                            <b class="label">Content: </b>
+                            <p>{{this.content}}</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="item__foot">
+                    <div class="btn-group" role="group" aria-label="Button group name">
+                        <a href="/update/{{this._id}}" type="button" class="btn btn-outline-primary">Update</a>
+                        <a href="/set-done/{{this._id}}" type="button" class="btn btn-outline-primary">Finished</a>
+                    </div>
+                    {{!-- <a href="/update/{{id}}" class="col btn btn-item">Update</a>
+                    <a href="/set/done/{{id}}" class="col btn btn-item">Finished</a> --}}
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <div class="row mt-5">
+        <h1>All</h1>
+        <span class="date_now"></span>
+        <script>
+            var date_now = document.querySelector('.date_now');
+            date_now.innerHTML = Date.now().toStrings();
+        </script>
+    </div>
+    <div class="row mt-4">
+        {{#each work}}
+        <div class="col-md-3 col">
+            <div class="item">
+                <div class="item__head">
+                    <h3>{{type}}</h3>
+                    <span>{{short_description}}</span>
+                </div>
+                <div class="item__content">
+                    <ul>
+                        <li>
+                            <b class="label">Title: </b>
+                            <p>{{title}}</p>
+                        </li>
+                        <li>
+                            <b class="label">Time: </b>
+                            <p>{{time}}</p>
+                        </li>
+                        <li>
+                            <b class="label">Content: </b>
+                            <p>{{content}}</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="item__foot">
+                    <div class="btn-group" role="group" aria-label="Button group name">
+                        <a href="/update/{{id}}" type="button" class="btn btn-outline-primary">Update</a>
+                        <a href="/set/done/{{id}}" type="button" class="btn btn-outline-primary">Finished</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
     </div>
 </div>

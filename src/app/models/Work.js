@@ -7,7 +7,9 @@ const Work = new Schema({
   content: { type: "string", default: "" },
   createAt: { type: "date", default: Date.now() },
   updateAt: { type: "date", default: Date.now() },
-  delete: { type: "boolean", default: false },
+  delete: { type: "boolean", default: false }, // have been this work finished ?
+  type: { type: "string", default: "Common work" },
+  short_description: { type: "string", default: "" },
 });
 
 const model = mongoose.model("works", Work);

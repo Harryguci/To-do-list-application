@@ -1,0 +1,51 @@
+:root {
+  --item-color-1: rgb(100, 200, 255);
+  --text-color-1: rgb(255, 255, 255);
+}
+.btn-item {
+    display: block;
+    padding: 5px 10px;
+    border: 1px solid #000000;
+}
+.btn-item:hover {
+    background: #000000;
+    color: var(--item-color-1);
+}
+.item {
+  background: rgb(245, 245, 245);
+  border-radius: 20px;
+  overflow: hidden;
+}
+.item__head {
+  padding: 10px 20px;
+  color: var(--text-color-1);
+  background: var(--item-color-1);
+}
+.item__head h3 {
+  margin: 0;
+}
+.item__head span {
+  color: rgba(0, 0, 0, 0.5);
+}
+.item__content {
+  padding: 20px;
+}
+.item__content ul li {
+    margin: 12px 0;
+}
+.item__content b.label {
+    font-size: 1.2rem;
+}
+.item__content ul li b, .item__content ul li p {
+    display: inline;
+    line-height: 20px;
+}
+
+.item__foot {
+    display: flex;
+    padding: 10px 20px;
+    justify-content: center;
+    /* background: var(--item-color-1); */
+}
+
+
