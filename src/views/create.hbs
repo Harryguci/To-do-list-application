@@ -1,0 +1,36 @@
+<div class="container-md mt-5">
+    <div class="row">
+        <h1 class="text-center">Create New Work</h1>
+    </div>
+    <div class="row mt-5">
+        <div class="col">
+            <div class="wrap">
+                <h2 class="mb-4">Fill your information</h2>
+                <form action="/create/new" method="POST">
+                    <div class="d-flex">
+                        <label class="col-12 col-md-1" for="title">Title</label>
+                        <input class="col-12 col-md" name="title" id="title" type="text" placeholder="Work's Title"
+                            required>
+                    </div>
+                    <div class="mt-2 d-flex">
+                        <label class="col-12 col-md-1" for="time">Time</label>
+                        <input class="col-12 col-md" name="time" id="time" type="date" placeholder="Time" required>
+                    </div>
+                    <div class="mt-2 d-flex">
+                        <label class="col-12 col-md-1" for="type">Type</label>
+                        <input class="col-12 col-md" name="type" id="type" type="text" placeholder="Type of Work"
+                            required>
+                    </div>
+                    <div class="mt-2 d-flex">
+                        <label class="col-12 col-md-1" for="content">Content</label>
+                        <textarea class="col-12 col-md" name="content" id="content" type="text" rows="5"
+                           placeholder="Something..." required></textarea>
+                    </div>
+                    <div class="mt-5 mb-2 d-flex">
+                        <button type="submit" class="btn btn-outline-primary mx-auto">Create</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

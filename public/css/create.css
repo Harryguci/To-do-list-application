@@ -1,0 +1,26 @@
+.wrap {
+  padding: 20px;
+  border: 10px;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 900px;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  background: rgb(245, 245, 245);
+}
+.wrap:hover,
+.wrap:focus {
+  box-shadow: 0 0 50px rgba(100, 100, 200, 0.3);
+}
+form > div {
+  gap: 12px;
+}
+form label {
+  font-size: 1.1rem;
+  margin: auto 0;
+}
+form input,
+textarea {
+  font-size: 1.1rem;
+  padding: 5px 10px;
+}
