@@ -1,0 +1,45 @@
+:root {
+  --color-1: orange;
+  --color-2: rgba(50, 50, 200);
+  --color-3: rgb(50, 200, 50);
+}
+.item {
+  border-radius: 10px;
+  padding: 15px;
+  background: rgba(245, 245, 255, 1);
+}
+
+.item .thumbnail {
+  padding: 0 0 0 15px;
+  width: calc(100% / 12);
+  height: auto;
+}
+.item .thumbnail img,
+.circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+}
+.circle-1 {
+  background: var(--color-1);
+}
+.circle-2 {
+  background: var(--color-2);
+}
+.circle-3 {
+  background: var(--color-3);
+}
+.item .btn-container {
+  row-gap: 10px;
+}
+.item .content {
+  padding: 0 10px;
+}
+
+
+.select-element-form {
+  display: none;
+}

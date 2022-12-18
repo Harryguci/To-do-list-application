@@ -1,0 +1,62 @@
+<div class="container-md">
+    <h1 class="my-5">Work List</h1>
+    <div class="row">
+        <form action="/" method="GET" onsubmit="HandleSubmit(event)">
+            <div class="d-flex mb-3">
+                <div class="col col-md-2">
+                    <label for="type-edit" class="form-label">Type</label>
+                    <select class="form-select form-select-lg" name="type-edit" id="type-edit">
+                        <option value="" selected>--Select one--</option>
+                        <option value="delete">Delete</option>
+                        <option value="finish">Finish</option>
+                    </select>
+                </div>
+                <div class="mb-0 mt-auto mx-3">
+                    <button id="submit-all-btn" type="button" class="btn btn-outline-primary" disabled="false">
+                        Perform
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    {{#each work}}
+    <div class="row mb-3">
+        <div class="col-12">
+            <div class="item">
+                <div class="row">
+                    <div class="thumbnail">
+                        <form class="select-element-form" action="/delete/{{this._id}}" method="GET">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="{{this._id}}" id="{{this._id}}">
+                                <label class="form-check-label" for="{{this._id}}"></label>
+                            </div>
+                        </form>
+                        <div class="circle my-auto">
+                            <h3 class="mx-auto text-white fs-1 first-char">A</h3>
+                        </div>
+                    </div>
+                    <div class="col-10 d-flex">
+                        <div class="content my-auto">
+                            <div class="row">
+                                <h3 class="name">{{this.title}}</h3>
+                            </div>
+                            <div class="row">
+                                <p>{{this.content}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <div class="row mb-2">
+                            <a class="btn btn-outline-primary" href="/delete/{{this._id}}">Delete</a>
+                        </div>
+                        <div class="row">
+                            <a class="btn btn-outline-primary" href="/update/{{this._id}}">Edit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+    <script type="module" src="./javascript/edit.js" defer></script>
+</div>

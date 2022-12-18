@@ -1,0 +1,61 @@
+<div class="container-md">
+    <h1 class="my-5">Trash Bin</h1>
+    {{#each work}}
+    <div class="row mb-3">
+        <div class="col-12">
+            <div class="item">
+                <div class="row">
+                    <div class="thumbnail">
+                        <div class="circle circle-1 my-auto">
+                            <h3 class="mx-auto text-white fs-1">A</h3>
+                        </div>
+                    </div>
+                    <div class="col-10">
+                        <div class="content">
+                            <div class="row">
+                                <h3 class="name">{{this.title}}</h3>
+                            </div>
+                            <div class="row">
+                                <p>{{this.content}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <div class="row mb-2">
+                            {{!--
+
+                            When click delete button :
+                            1. get the value of button (link's current document)
+                            2. set href for delete button in modal(dialog)
+                            3. show dialog
+
+                            [Note]: Currently, the delete button as a link (to delete the document forever ! Remove out
+                            the database)
+
+                            --}}
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalDelete"
+                                value="/delete/{{this._id}}/forever">
+                                Delete
+                            </button>
+                        </div>
+
+
+                        <div class="row">
+
+                            {{!--
+
+                            When click the undo button:
+                            1. Set current document with 'delete' property from true to false.
+
+                            --}}
+                            <a class="btn btn-outline-primary btn-undo" href="/delete/{{this._id}}/undo">Undo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+    <script src="./javascript/delete.js" defer></script>
+    <script src="./javascript/edit.js" defer></script>
+</div>

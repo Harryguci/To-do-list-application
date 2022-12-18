@@ -53,6 +53,7 @@ class WorkController {
           res.render("home", {
             css: `<link rel="stylesheet" href="./css/home.css">`,
             work_today: arr,
+            work: arr,
           });
         })
         .catch((err) => next(err));
@@ -60,7 +61,19 @@ class WorkController {
       next(err);
     }
   };
-
+  showAllJson = (req, res, next) => {
+    try {
+      Work.find({})
+        .then((arr) => {
+          arr = Array.from(arr);
+          arr = arr.map((doc) => (doc = doc.toObject()));
+          res.json(arr);
+        })
+        .catch((err) => next(err));
+    } catch (err) {
+      next(err);
+    }
+  };
   /* Create a default work */
   create = function (req, res, next) {
     try {

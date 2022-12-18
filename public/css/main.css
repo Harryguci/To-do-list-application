@@ -18,6 +18,27 @@ ol {
 .nav-item > a {
   color: #eef1ff !important;
 }
+input[type="checkbox"] {
+  width: 30px;
+  height: 30px;
+  border-radius: 50% !important;
+}
+/* BEGIN: MODAL */
+.modal {
+  background: none !important;
+  box-shadow: none !important;
+}
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.modal.fade {
+  opacity: 1;
+}
+/* END OF: MODAL */
+
 footer {
   gap: 12px;
   background: #1572a1;
