@@ -4,20 +4,16 @@ class createController {
   // [GET] /create
   show = function (req, res, next) {
     res.render("create", {
-      css: `<link rel="stylesheet" href="./css/create.css">`,
+      css: [`create.css`],
       title: "Create page",
     });
   };
 
   // [POST] /create/new
-  create = function (req, res, next) {
-    try {
-      const work = new Work(req.body, Work);
-      work.save();
-      res.json(work.toObject());
-    } catch (err) {
-      next(err);
-    }
+  create = async function (req, res, next) {
+    const work = await new Work(req.body, Work);
+    await work.save();
+    res.redirect("/");
   };
 }
 

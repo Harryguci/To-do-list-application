@@ -14,53 +14,70 @@ function getTimeNow(x) {
 }
 
 class WorkController {
-  show = function (req, res, next) {
-    try {
+  /* 
+      1. USE two Promise:
+  
+      - work_today: get all works have time today.
+      - work: get all works (aren't finished yet)
+  
+      2. Merge two Process --> Render into Home page
+    */
+  show = async function (req, res, next) {
+    const handleWorksToday = new Promise((resolve, reject) => {
       Work.find({ time: { $gte: getTimeNow(-1), $lte: getTimeNow(1) } })
+        .sort({ time: "asc" })
         .then((arr) => {
           arr = Array.from(arr);
           arr = arr.map((doc) => (doc = doc.toObject()));
-          //return arr;
 
-          /* 
-            1. USE two Promise:
-
-            - work_today: get all works have time today.
-            - work: get all works (aren't finished yet)
-
-            2. Merge two Process --> Render into Home page
-          */
-
-          res.render("home", {
-            css: `<link rel="stylesheet" href="./css/home.css">`,
-            work_today: arr,
-            work: arr,
-          });
+          resolve(arr);
         })
-        .catch((err) => next(err));
-    } catch (err) {
-      next(err);
-    }
+        .catch((err) => reject(err));
+    });
+
+    const handleWorksAll = new Promise((resolve, reject) => {
+      Work.find({})
+        .sort({ time: "asc" })
+        .then((arr) => {
+          arr = Array.from(arr);
+          arr = arr.map((doc) => (doc = doc.toObject()));
+
+          resolve(arr);
+        })
+        .catch((err) => reject(err));
+    });
+
+    Promise.all([handleWorksToday, handleWorksAll]).then((result) => {
+      {
+        res.render("home", {
+          css: [`home.css`],
+          work_today: result[0],
+          work: result[1],
+        });
+      }
+    });
   };
 
   /* Show all works (aren't finished yet) into Home page */
-  showAll = (req, res, next) => {
-    try {
-      Work.find({})
-        .then((arr) => {
-          arr = Array.from(arr);
-          arr = arr.map((doc) => (doc = doc.toObject()));
-          res.render("home", {
-            css: `<link rel="stylesheet" href="./css/home.css">`,
-            work_today: arr,
-            work: arr,
-          });
-        })
-        .catch((err) => next(err));
-    } catch (err) {
-      next(err);
-    }
-  };
+  // showAll = (req, res, next) => {
+  //   try {
+  //     Work.find({})
+  //       .then((arr) => {
+  //         arr = Array.from(arr);
+  //         arr = arr.map((doc) => (doc = doc.toObject()));
+  //         res.render("home", {
+  //           css: [`home.css`],
+  //           work_today: arr,
+  //           work: arr,
+  //         });
+  //       })
+  //       .catch((err) => next(err));
+  //   } catch (err) {
+  //     next(err);
+  //   }
+  // };
+
+  // Show all documents as json objects. (For development)
   showAllJson = (req, res, next) => {
     try {
       Work.find({})
@@ -74,7 +91,11 @@ class WorkController {
       next(err);
     }
   };
-  /* Create a default work */
+
+  /* 
+    Create a default work. (For development) 
+  */
+  // [GET] /creatework
   create = function (req, res, next) {
     try {
       const work = new Work(
@@ -91,19 +112,6 @@ class WorkController {
 
       work.save();
       res.json(work.toObject());
-    } catch (err) {
-      next(err);
-    }
-  };
-
-  /* Delete all (delete without move to trash bin) */
-  deleteAll = function (req, res, next) {
-    try {
-      Work.deleteMany({}, () => {
-        res.json({
-          Delete: "ALL",
-        });
-      });
     } catch (err) {
       next(err);
     }

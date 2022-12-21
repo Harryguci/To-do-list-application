@@ -1,0 +1,49 @@
+<div class="container my-5">
+    <div class="row">
+        <div class="heading">
+            <h1 class="hero text-center">Update Work</h1>
+            <p class="description text-center"></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="item">
+                <div class="item__head">
+                    <h3>{{work.type}}</h3>
+                    <span>{{work.short_description}}</span>
+                </div>
+                <div class="item__content">
+                    <ul>
+                        <li>
+                            <b class="label">Title: </b>
+                            <p>{{work.title}}</p>
+                        </li>
+                        <li>
+                            <b class="label">Time: </b>
+                            <p>{{work.time}}</p>
+                        </li>
+                        <li>
+                            <b class="label">Content: </b>
+                            <p>{{work.content}}</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="item__foot">
+                    <div class="btn-group" role="group" aria-label="Button group name">
+                        <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+                            data-target="#modalDelete" value="/delete/{{work._id}}">
+                            Delete
+                        </button>
+
+                        <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+                            data-target="#modalDelete" value="/finish/{{work._id}}">
+                            Finished
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="module" src="./javascript/delete.js" defer></script>

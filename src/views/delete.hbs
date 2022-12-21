@@ -29,7 +29,8 @@
                             2. set href for delete button in modal(dialog)
                             3. show dialog
 
-                            [Note]: Currently, the delete button as a link (to delete the document forever ! Remove out
+                            [Note]: Currently, the delete button as a link (to delete the document forever ! Remove
+                            out
                             the database)
 
                             --}}
@@ -56,6 +57,9 @@
         </div>
     </div>
     {{/each}}
-    <script src="./javascript/delete.js" defer></script>
-    <script src="./javascript/edit.js" defer></script>
+    {{#if empty}}
+    <h1 class="center p-4 bg-info rounded-3 bg-opacity-25">Nothing At Here</h1>
+    {{/if}}
+    <script type="module" src="./javascript/delete.js" defer></script>
+    <script type="module" src="./javascript/edit.js" defer></script>
 </div>

@@ -1,16 +1,16 @@
 var thumbnail = $(".item .thumbnail");
 import randNumber from "./random.js";
-
 /*
   Handle select type [delete] or [finish]
 */
-$("#type-edit").change(function (e) {
+$("#type_edit").change(function (e) {
   console.log($(this).val());
+
   if ($(this).val()) {
-    $(".select-element-form").css("display", "block");
+    $(".form-check").css("display", "block");
     $("#submit-all-btn").prop("disabled", false);
   } else {
-    $(".select-element-form").css("display", "none");
+    $(".form-check").css("display", "none");
     $("#submit-all-btn").prop("disabled", true);
   }
 });
@@ -47,29 +47,3 @@ arrCircle.map(function (current) {
   current.classList.add(`circle-${num}`);
   previousRandNum = num;
 });
-
-// HANDLE submit multiple form (have checked)
-$("#submit-all-btn").click(function () {
-  var arr = $(".select-element-form .form-check-input:checked").parents(
-    ".select-element-form"
-  );
-  console.log("submit");
-  arr.each(function () {
-    var fd = new FormData($(this)[0]);
-    $.ajax({
-      type: "GET",
-      url: "",
-      data: fd,
-      processData: false,
-      contentType: false,
-      success: function (data, status) {
-        console.log("success");
-      },
-      error: function (data, status) {
-        console.log("error");
-      },
-    });
-  });
-});
-
-// window.HandleSubmit = HandleSubmit;

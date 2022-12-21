@@ -13,11 +13,51 @@ ol {
   font-size: 1.5rem;
 }
 .navbar {
-  background: #1572a1;
+  background: #175b7e;
+}
+.navbar-brand:hover,
+.navbar-brand:focus {
+  color: #ffffff;
+}
+.nav-item {
+  padding: 5px 20px;
+  border-radius: 10px;
+}
+.nav-item:hover,
+.nav-item:focus {
+  background: rgba(255, 255, 255, 0.2);
 }
 .nav-item > a {
   color: #eef1ff !important;
 }
+.navbar .btn-search {
+  color: white;
+  border: 1px #ffffff solid !important;
+}
+.navbar .btn-search:hover {
+  color: #175b7e;
+  background: #ffffff;
+}
+nav .dropdown .dropdown-menu {
+  animation-name: dropdown-move-in;
+  animation-duration: 0.2s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-out;
+}
+nav .dropdown .dropdown-menu .dropdown-item {
+  padding: 10px 20px;
+}
+@keyframes dropdown-move-in {
+  0% {
+    opacity: 0;
+    transform: translate(0, -20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
 input[type="checkbox"] {
   width: 30px;
   height: 30px;

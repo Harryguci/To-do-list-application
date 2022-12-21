@@ -7,7 +7,8 @@ const Work = new Schema({
   content: { type: "string", default: "" },
   createAt: { type: "date", default: Date.now() },
   updateAt: { type: "date", default: Date.now() },
-  delete: { type: "boolean", default: false }, // have been this work finished ?
+  delete: { type: "boolean", default: false }, // has deleted ?
+  finished: { type: "boolean", default: false }, // has finished ?
   type: { type: "string", default: "Common work" },
   short_description: { type: "string", default: "" },
 });
