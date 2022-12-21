@@ -4,22 +4,32 @@ class finishController {
   // [GET] /finish
   // Show all the finished works.
   show = (req, res, next) => {
-    res.send("Finish page");
+    Work.find({ finished: true })
+      .then((arr) => {
+        arr = Array.from(arr);
+        arr = arr.map((work) => (work = work.toObject()));
+
+        res.render("finish", {
+          title: "Finish Page",
+          work: arr,
+          css: ["finish.css"],
+        });
+      })
+      .catch((err) => {
+        next(err);
+      });
   };
 
   // [GET] /finish/:id
   // Set finish property is true
-  finishOne = (req, res, next) => {
-    // res.send("Finish : " + req.params.id);
-    var currId = req.params.id;
-    console.log(typeof Work);
-    console.log(currId);
-    Work.find({ _id: currId }, (err, work) => {
-      res.json(work);
-    });
-    // Work.findOneAndUpdated({ _id: currId }, { finished: true }, { new: true })
-    //   .then((work) => res.json(work))
-    //   .catch((err) => next(err));
+  finishOne = async (req, res, next) => {
+    var id = req.params.id;
+    Work.findOneAndUpdate({ _id: id }, { finished: "true" }, { new: true })
+      .then((work) => {
+        // res.json(work);
+        res.redirect("back");
+      })
+      .catch((err) => next(err));
   };
 }
 

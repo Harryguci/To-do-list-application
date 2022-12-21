@@ -12,11 +12,13 @@
     color: var(--item-color-1);
 }
 .item {
+  position: relative;
   background: rgb(245, 245, 245);
   border-radius: 20px;
   overflow: hidden;
 }
 .item__head {
+  position: relative;
   padding: 10px 20px;
   color: var(--text-color-1);
   background: var(--item-color-1);

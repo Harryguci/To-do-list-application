@@ -1,17 +1,19 @@
-<div class="container-fluid container-md mt-4">
+<div class="container-fluid container-md my-5">
     <div class="row">
         <h1>To Day</h1>
-        {{!-- <span>{{{date_now}}}</span> --}}
-        <span class="date_now"></span>
+        <span class="date_now text-primary"></span>
         <script>
             var date_now = document.querySelector('.date_now');
-            date_now.innerHTML = Date.now().toStrings();
+            date_now.innerHTML = new Date(Date.now()).toUTCString();
         </script>
     </div>
-    <div class="row mt-4">
+    <div class="row mt-4" style="row-gap: 20px;">
         {{#each work_today}}
         <div class="col-md-3 col">
             <div class="item">
+                {{#if this.finished}}
+                <span class="badge rounded-0">Done</span>
+                {{/if}}
                 <div class="item__head">
                     <h3>{{this.type}}</h3>
                     <span>{{this.short_description}}</span>
@@ -34,8 +36,15 @@
                 </div>
                 <div class="item__foot">
                     <div class="btn-group" role="group" aria-label="Button group name">
-                        <a href="/edit/{{this._id}}" type="button" class="btn btn-outline-primary">Update</a>
-                        <a href="/finish/{{this._id}}" type="button" class="btn btn-outline-primary">Finished</a>
+                        <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+                            data-target="#modalDelete" value="/edit/{{this._id}}">
+                            Update
+                        </button>
+
+                        <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+                            data-target="#modalDelete" value="/finish/{{this._id}}">
+                            Finished
+                        </button>
                     </div>
                 </div>
             </div>
@@ -50,10 +59,13 @@
             date_now.innerHTML = Date.now().toStrings();
         </script>
     </div>
-    <div class="row mt-4">
+    <div class="row mt-4" style="row-gap: 20px;">
         {{#each work}}
         <div class="col-md-3 col">
             <div class="item">
+                {{#if this.finished}}
+                <span class="badge rounded-0">Done</span>
+                {{/if}}
                 <div class="item__head">
                     <h3>{{type}}</h3>
                     <span>{{short_description}}</span>
@@ -76,8 +88,15 @@
                 </div>
                 <div class="item__foot">
                     <div class="btn-group" role="group" aria-label="Button group name">
-                        <a href="/update/{{id}}" type="button" class="btn btn-outline-primary">Update</a>
-                        <a href="/set/done/{{id}}" type="button" class="btn btn-outline-primary">Finished</a>
+                        <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+                            data-target="#modalDelete" value="/edit/{{this._id}}">
+                            Update
+                        </button>
+
+                        <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+                            data-target="#modalDelete" value="/finish/{{this._id}}">
+                            Finished
+                        </button>
                     </div>
                 </div>
             </div>
@@ -85,3 +104,5 @@
         {{/each}}
     </div>
 </div>
+
+<script type="module" src="./javascript/modal.js" defer></script>

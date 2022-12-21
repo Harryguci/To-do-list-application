@@ -1,0 +1,33 @@
+
+<div class="container-md my-5">
+    <div class="row mb-5">
+        <div class="heading">
+            <h1>All Finished Work</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="table-responsive-sm">
+            <table class="table table-bordered table-hover">
+                <thead class="">
+                    <tr>
+                        <th class="col-1">#ID</th>
+                        <th class="col-5">Name</th>
+                        <th class="col-5">Time</th>
+                        <th class="col-1">Scores</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each work}}
+                    <tr class="" style="height: 200px;">
+                        <td scope="">{{this._id}}</td>
+                        <td>{{this.title}}</td>
+                        <td>{{this.time}}</td>
+                        <td>none</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

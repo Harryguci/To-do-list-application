@@ -1,0 +1,14 @@
+tr {
+    height: 60px !important;
+}
+th, td {
+    text-align: left;
+    vertical-align: middle;
+}
+thead {
+    font-size: 1.3rem;
+    background: rgb(240, 240, 255);
+}
+table td:first-child {
+    text-align: center;
+}

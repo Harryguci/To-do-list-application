@@ -69,7 +69,7 @@ input[type="checkbox"] {
   box-shadow: none !important;
 }
 .center {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -78,7 +78,11 @@ input[type="checkbox"] {
   opacity: 1;
 }
 /* END OF: MODAL */
-
+.badge {
+  display: block;
+  right: 0;
+  background: orangered;
+}
 footer {
   gap: 12px;
   background: #1572a1;

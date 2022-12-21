@@ -24,7 +24,10 @@ class WorkController {
     */
   show = async function (req, res, next) {
     const handleWorksToday = new Promise((resolve, reject) => {
-      Work.find({ time: { $gte: getTimeNow(-1), $lte: getTimeNow(1) } })
+      Work.find({
+        time: { $gte: getTimeNow(-1), $lte: getTimeNow(1) },
+        delete: false,
+      })
         .sort({ time: "asc" })
         .then((arr) => {
           arr = Array.from(arr);
@@ -36,7 +39,7 @@ class WorkController {
     });
 
     const handleWorksAll = new Promise((resolve, reject) => {
-      Work.find({})
+      Work.find({ delete: false })
         .sort({ time: "asc" })
         .then((arr) => {
           arr = Array.from(arr);
@@ -57,25 +60,6 @@ class WorkController {
       }
     });
   };
-
-  /* Show all works (aren't finished yet) into Home page */
-  // showAll = (req, res, next) => {
-  //   try {
-  //     Work.find({})
-  //       .then((arr) => {
-  //         arr = Array.from(arr);
-  //         arr = arr.map((doc) => (doc = doc.toObject()));
-  //         res.render("home", {
-  //           css: [`home.css`],
-  //           work_today: arr,
-  //           work: arr,
-  //         });
-  //       })
-  //       .catch((err) => next(err));
-  //   } catch (err) {
-  //     next(err);
-  //   }
-  // };
 
   // Show all documents as json objects. (For development)
   showAllJson = (req, res, next) => {

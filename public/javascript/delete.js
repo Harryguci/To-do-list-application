@@ -1,17 +1,45 @@
+function setUpModal(title, content, btn1, btn2) {
+  $("#modalDelete h5.modal-title").text(title);
+  $("#modalDelete .modal-body").html(`<p>${content}</p>`);
+  $("#modalDelete .btn-delete").text(btn1);
+}
+
 $(document).ready(function () {
   const handleLink = async function (link) {
     await $("#modalDelete .btn-delete").attr("href", link);
   };
 
-  $("#modalDelete h5.modal-title").text("Delete Message");
-  $("#modalDelete .modal-body").html(
-    "<p>Do you sure delete this document ?</p>"
-  );
-
   $('button[data-target="#modalDelete"]').click(function () {
     var currLink = $(this).attr("value");
     handleLink(currLink);
+    var status = $(this).text().toLowerCase().trim();
 
+    switch (status) {
+      case "delete":
+        setUpModal(
+          "Delete Message",
+          "Do you sure delete this document ?",
+          "Delete"
+        );
+        break;
+      case "update":
+        setUpModal(
+          "Update Message",
+          "Do you sure update this document ?",
+          "Update"
+        );
+        break;
+      case "finished":
+        setUpModal(
+          "Finish Message",
+          "Do you sure finish this message ?",
+          "Finish"
+        );
+        break;
+
+      default:
+        break;
+    }
     $("#modalDelete").modal("show");
   });
   $('button[data-dismiss="modal"]').click(function () {
