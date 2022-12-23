@@ -30,11 +30,7 @@ $(document).ready(function () {
         );
         break;
       case "finished":
-        setUpModal(
-          "Finish Message",
-          "Have You Finished This Work ?",
-          "Finish"
-        );
+        setUpModal("Finish Message", "Have You Finished This Work ?", "Finish");
         break;
 
       default:

@@ -3,7 +3,12 @@ const Schema = mongoose.Schema;
 
 const Work = new Schema({
   title: { type: "string", default: "Title" },
-  time: { type: "date", default: Date.now() },
+
+  hour: { type: "string", default: "hh:mm" },
+  date: { type: "string", default: "dd" },
+  month: { type: "string", default: "mm" },
+  year: { type: "string", default: "yyyy" },
+
   content: { type: "string", default: "" },
   createAt: { type: "date", default: Date.now() },
   updateAt: { type: "date", default: Date.now() },

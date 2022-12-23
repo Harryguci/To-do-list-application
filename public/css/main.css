@@ -44,6 +44,14 @@ nav .dropdown .dropdown-menu {
   animation-fill-mode: both;
   animation-timing-function: ease-out;
 }
+@media only screen and (max-width: 768px) {
+  nav .dropdown .dropdown-menu {
+    animation-name: none;
+    background: none;
+    border: none;
+    color: white !important;
+  }
+}
 nav .dropdown .dropdown-menu .dropdown-item {
   padding: 10px 20px;
 }

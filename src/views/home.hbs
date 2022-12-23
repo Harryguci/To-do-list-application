@@ -5,6 +5,10 @@
         <script>
             var date_now = document.querySelector('.date_now');
             date_now.innerHTML = new Date(Date.now()).toUTCString();
+
+            setInterval(() => {
+                date_now.innerHTML = new Date(Date.now()).toUTCString();
+            }, 1000);
         </script>
     </div>
     <div class="row mt-4" style="row-gap: 20px;">
@@ -26,7 +30,7 @@
                         </li>
                         <li>
                             <b class="label">Time: </b>
-                            <p>{{this.time}}</p>
+                            <p>{{this.hour}} {{this.date}}/{{this.month}}/{{this.year}}</p>
                         </li>
                         <li>
                             <b class="label">Content: </b>
@@ -78,7 +82,7 @@
                         </li>
                         <li>
                             <b class="label">Time: </b>
-                            <p>{{time}}</p>
+                            <p>{{this.hour}} {{this.date}}/{{this.month}}/{{this.year}}</p>
                         </li>
                         <li>
                             <b class="label">Content: </b>

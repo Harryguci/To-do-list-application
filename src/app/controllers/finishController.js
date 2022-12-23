@@ -26,7 +26,6 @@ class finishController {
     var id = req.params.id;
     Work.findOneAndUpdate({ _id: id }, { finished: "true" }, { new: true })
       .then((work) => {
-        // res.json(work);
         res.redirect("back");
       })
       .catch((err) => next(err));
