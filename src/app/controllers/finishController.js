@@ -10,7 +10,7 @@ class finishController {
         arr = arr.map((work) => (work = work.toObject()));
 
         res.render("finish", {
-          title: "Finish Page",
+          titlePage: "Finish Page",
           work: arr,
           css: ["finish.css"],
         });

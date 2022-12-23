@@ -28,5 +28,7 @@ router.use("/finish", finishRouter);
 // Show all works
 router.get("/all/json", WorkController.showAllJson);
 router.get("/", WorkController.show);
+router.get("/:slug", WorkController.showError);
+
 
 module.exports = router;

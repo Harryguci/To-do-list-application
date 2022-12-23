@@ -2,6 +2,9 @@
   --item-color-1: rgb(100, 200, 255);
   --text-color-1: rgb(255, 255, 255);
 }
+h1 {
+  font-weight: bold;
+}
 .btn-item {
     display: block;
     padding: 5px 10px;

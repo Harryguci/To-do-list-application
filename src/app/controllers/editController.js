@@ -16,7 +16,7 @@ class editController {
         arr = arr.map((doc) => (doc = doc.toObject()));
 
         res.render("Edit", {
-          title: "Edit page",
+          titlePage: "Edit page",
           css: ["edit.css"],
           bin_count: count,
           work: arr,

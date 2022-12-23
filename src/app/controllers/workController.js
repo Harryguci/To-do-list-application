@@ -1,5 +1,5 @@
 const Work = require("../models/Work");
-// const path = require("path");
+const path = require("path");
 
 /*
   Get date before/after x days from to day
@@ -52,11 +52,19 @@ class WorkController {
 
     Promise.all([handleWorksToday, handleWorksAll]).then((result) => {
       {
-        res.render("home", {
-          css: [`home.css`],
-          work_today: result[0],
-          work: result[1],
-        });
+        if (result.length == 2 && result[0] && result[1]) {
+          const work = result[0];
+          const work_today = result[1];
+
+          res.render("home", {
+            titlePage: "Home page",
+            css: [`home.css`],
+            work,
+            work_today,
+          });
+        } else {
+          redirect("/error");
+        }
       }
     });
   };
@@ -106,6 +114,16 @@ class WorkController {
     try {
       var id = req.params.id;
       res.send("Delete : " + id);
+    } catch (err) {
+      next(err);
+    }
+  };
+
+  showError = async (req, res, next) => {
+    try {
+      res.sendFile(
+        path.join(__dirname, "..", "..", "..", "public", "html", "error.html")
+      );
     } catch (err) {
       next(err);
     }
