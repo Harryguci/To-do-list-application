@@ -46,7 +46,16 @@ class editController {
 
       case "finish":
         // .. Route to Finish controller.
-        res.json(req.body);
+        var ids = Array.from(req.body.id);
+
+        for (var x of ids) {
+          await Work.findOneAndUpdate({ _id: x }, { finished: "true" })
+            .then((work) => {
+              console.log("Finished " + work._id);
+            })
+            .catch((err) => next(err));
+        }
+        res.redirect("back"); // back to the previous page.
         break;
 
       default:
@@ -59,8 +68,6 @@ class editController {
   // Edit one document.
   editOne = async (req, res, next) => {
     res.send(req.params.id);
-    
-
   };
 }
 

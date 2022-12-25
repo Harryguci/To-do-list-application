@@ -12,6 +12,7 @@
         </script>
     </div>
     <div class="row mt-4" style="row-gap: 20px;">
+        {{#if work_today.length}}
         {{#each work_today}}
         <div class="col-md-3 col">
             <div class="item">
@@ -62,6 +63,11 @@
             </div>
         </div>
         {{/each}}
+        {{else}}
+        <div class="w-100 h-100 d-flex justify-content-center align-items-center">
+            <h2 class="fs-1 fw-bold p-3 bg-info bg-opacity-25 rounded-2">Not found</h2>
+        </div>
+        {{/if}}
     </div>
     <div class="row mt-5">
         <h1>All</h1>
@@ -72,6 +78,7 @@
         </script>
     </div>
     <div class="row mt-4" style="row-gap: 20px;">
+        {{#if work.length}}
         {{#each work}}
         <div class="col-md-3 col">
             <div class="item">
@@ -120,6 +127,11 @@
             </div>
         </div>
         {{/each}}
+        {{else}}
+        <div class="w-100 h-100 d-flex justify-content-center align-items-center">
+            <h2 class="fs-1 fw-bold p-3 bg-info bg-opacity-25 rounded-2">Not found</h2>
+        </div>
+        {{/if}}
     </div>
 </div>
 

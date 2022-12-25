@@ -34,6 +34,14 @@
         }
     </style>
 
+    <!-- GOOGLE FONT: ROBOTO-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,400&display=swap"
+        rel="stylesheet">
+
+
     {{!-- Main CSS --}}
     <link rel="stylesheet" href="./css/main.css">
 
@@ -77,18 +85,36 @@
                                 aria-haspopup="true" aria-expanded="false">Finish</a>
                             <div class="dropdown-menu" aria-labelledby="dropdownFinish">
                                 <a class="dropdown-item" href="/finish">History</a>
-                                <a class="dropdown-item" href="/finish">Other Feature..</a>
+                                <a class="dropdown-item" href="/error">Other Feature..</a>
                             </div>
                         </li>
                     </ul>
-                    <form class="d-flex my-2 my-lg-0" action="/search" method="GET">
-                        <input class="form-control rounded-0" type="text" placeholder="Search" required>
-                        <button class="btn btn-search my-2 my-sm-0 rounded-0 mx-1" type="submit">
+                    <form name="top-search-form" class="d-flex my-2 my-lg-0" action="/search" method="GET">
+                        <input class="form-control rounded-0" name="q" type="text" placeholder="Search" required>
+                        <button class="btn btn-search my-2 my-sm-0 rounded-0 mx-1 disabled" type="submit">
                             <span class="material-symbols-outlined">
                                 search
                             </span>
                         </button>
                     </form>
+                    <script>
+                        /*
+                            *** Check value of The input. ***
+
+                            IF : the value is null (or empty) then the button will be disabled
+                            ELSE : the button will be enabled
+                        */
+
+                        var searchInput = document.querySelector('form[name="top-search-form"] input');
+                        var buttonSearch = document.querySelector('form[name="top-search-form"] button');
+                        searchInput.addEventListener('keyup', function () {
+                            if (searchInput.value) {
+                                buttonSearch.classList.remove('disabled');
+                            } else {
+                                buttonSearch.classList.add('disabled');
+                            }
+                        });
+                    </script>
                 </div>
             </div>
         </nav>

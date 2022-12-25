@@ -25,10 +25,12 @@ class WorkController {
   show = async function (req, res, next) {
     const handleWorksToday = new Promise((resolve, reject) => {
       Work.find({
-        time: { $gte: getTimeNow(-1), $lte: getTimeNow(1) },
+        date: { $gte: getTimeNow(-1).getDate(), $lte: getTimeNow(1).getDate() },
+        month: getTimeNow(0).getMonth() + 1,
+        year: getTimeNow(0).getFullYear(),
         delete: false,
       })
-        .sort({ time: "asc" })
+        .sort({ createAt: "asc" })
         .then((arr) => {
           arr = Array.from(arr);
           arr = arr.map((doc) => (doc = doc.toObject()));
@@ -40,7 +42,7 @@ class WorkController {
 
     const handleWorksAll = new Promise((resolve, reject) => {
       Work.find({ delete: false })
-        .sort({ time: "asc" })
+        .sort({ createAt: "asc" })
         .then((arr) => {
           arr = Array.from(arr);
           arr = arr.map((doc) => (doc = doc.toObject()));
@@ -53,8 +55,8 @@ class WorkController {
     Promise.all([handleWorksToday, handleWorksAll]).then((result) => {
       {
         if (result.length == 2 && result[0] && result[1]) {
-          const work = result[0];
-          const work_today = result[1];
+          const work_today = result[0];
+          const work = result[1];
 
           res.render("home", {
             titlePage: "Home page",

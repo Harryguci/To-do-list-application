@@ -3,7 +3,12 @@
 }
 body,
 html {
-  font-family: sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+h1,
+h2,
+h3 {
+  font-weight: bold;
 }
 ul,
 ol {
