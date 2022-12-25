@@ -1,6 +1,5 @@
 .wrap {
   padding: 30px;
-  border: 10px;
   width: 100%;
   margin: 0 auto;
   max-width: 900px;
@@ -59,7 +58,7 @@
 .select-items {
   position: absolute;
   background-color: DodgerBlue;
-  width: 90%;
+  width: 100%;
   top: 100%;
   right: 0 ;
   z-index: 99;
@@ -91,4 +90,13 @@ textarea {
   border: none;
   border-radius: 10px;
   box-shadow: 3px 3px 0 rgba(0, 0, 250, 0.2);
+}
+
+
+@media only screen and (max-width: 768px) {
+  .wrap {
+    padding: 20px;
+    /* overflow: hidden; */
+  }
+
 }

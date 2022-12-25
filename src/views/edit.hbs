@@ -1,5 +1,5 @@
 <div class="container-md">
-    <div class="my-5">
+    <div class="mt-5 mb-3 my-md-5">
         <h1>Work List</h1>
         {{#if bin_count}}
         <a href="/delete">Trash bin (<b class="bin-count">{{{bin_count}}}</b>)</a>
@@ -34,11 +34,13 @@
                                 <input class="form-check-input" name="id" type="checkbox" value="{{this._id}}"
                                     id="{{this._id}}">
                             </div>
-                            <div class="circle my-auto">
+                            <div class="circle my-auto d-none d-md-flex">
                                 <h3 class="mx-auto text-white fs-1 first-char">A</h3>
                             </div>
+                            <div class="rectangle my-auto d-block d-md-none"
+                                style="width: 5px; height: 100%; background: red;"></div>
                         </div>
-                        <div class="col-10 d-flex">
+                        <div class="col-8 col-md-10 d-flex">
                             <div class="content my-auto">
                                 <div class="row">
                                     <h3 class="name">{{this.title}}</h3>
@@ -48,7 +50,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-1">
+                        <div class="col-3 col-md-1">
                             <div class="row mb-2">
                                 {{!-- <a class="btn btn-outline-primary" href="/delete/{{this._id}}">Delete</a> --}}
                                 <button type="button" class="btn btn-outline-primary" data-toggle="modal"
@@ -71,6 +73,14 @@
         </div>
         {{/each}}
     </form>
+    <script>
+        var colors = ['red', 'green', 'yellow', 'orange', 'blue'];
+
+        $('.item .rectangle').each(function (index, element) {
+            var i = Math.random() * colors.length;
+            element.css(background, colors[i]);
+        });
+    </script>
 </div>
 
 <script type="module" src="./javascript/modal.js" defer></script>

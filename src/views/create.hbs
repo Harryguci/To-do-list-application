@@ -7,34 +7,38 @@
             <div class="wrap">
                 <form action="/create/new" method="POST" onsubmit="checkFormSub(event)">
                     <div class="d-flex mt-4">
-                        <label class="col-12 col-md-1" for="title">Title</label>
-                        <input class="col-12 col-md" name="title" id="title" type="text" placeholder="Work's Title"
+                        <label class="col-md-1" for="title">Title</label>
+                        <input class="col col-md" name="title" id="title" type="text" placeholder="Work's Title"
                             required>
                     </div>
                     <div class="mt-3 d-flex">
-                        <label class="col-12 col-md-1" for="time">Time</label>
-                        <div class="d-flex w-100" style="gap: 20px;">
-                            <input class="col-12 col-md" name="hour" id="hour" type="text" placeholder="Hour:minute"
-                                required>
-                            <input class="col-12 col-md" name="date" id="date" type="text" placeholder="Date" required>
-                            <input class="col-12 col-md" name="month" id="month" type="text" placeholder="Month"
-                                required>
-                            <input class="col-12 col-md" name="year" id="year" type="text" placeholder="Year" required>
+                        <label class="col-md-1 mt-1 mt-md-auto" for="time">Time</label>
+                        <div class="d-block d-md-flex w-100 gap-3" style="">
+                            <input class="col-12 col-md mb-2" name="hour" id="hour" type="text"
+                                placeholder="Hour:minute" required>
+                            <input class="col-12 col-md mb-2 mb-md-0" name="date" id="date" type="text"
+                                placeholder="Date" required>
+                            <input class="col-12 col-md mb-2 mb-md-0" name="month" id="month" type="text"
+                                placeholder="Month" required>
+                            <input class="col-12 col-md mb-2 mb-md-0" name="year" id="year" type="text"
+                                placeholder="Year" required>
                         </div>
                     </div>
                     <div class="mt-3 d-flex">
-                        <div class="mb-3 d-flex w-100 custom-select gap-3">
+                        <div class="mb-3 d-flex w-100 gap-3">
                             <label for="type" class="form-label col-1">Type</label>
-                            <select class="form-select form-select-xl col-11" style="" name="type" id="type">
-                                <option selected>--Select One--</option>
-                                <option value="Common work">Common Work</option>
-                                <option value="Study">Study</option>
-                                <option value="Business">Business</option>
-                                <option value="Pleasure">Pleasure</option>
-                            </select>
+                            <div class="col custom-select">
+                                <select class="form-select" style="" name="type" id="type">
+                                    <option selected>--Select One--</option>
+                                    <option value="Common work">Common Work</option>
+                                    <option value="Study">Study</option>
+                                    <option value="Business">Business</option>
+                                    <option value="Pleasure">Pleasure</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
-                    <div class="mt-2 d-flex">
+                    <div class="mt-2 d-flex" style="flex-wrap: wrap;">
                         <label class="col-12 col-md-1" for="content">Content</label>
                         <textarea class="col-12 col-md" name="content" id="content" type="text" rows="5"
                             placeholder="Something..." required></textarea>

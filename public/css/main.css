@@ -61,6 +61,8 @@ ol {
   color: #175b7e;
   background: #ffffff;
 }
+
+/* NAVIGATION : DROPDOWN MENU */
 nav .dropdown .dropdown-menu {
   border-radius: 0;
   background-color: rgb(120, 120, 255);
@@ -75,6 +77,11 @@ nav .dropdown .dropdown-menu .dropdown-item {
 nav .dropdown .dropdown-menu .dropdown-item:hover {
   background: rgba(0, 0, 0, 0.3);
 }
+button.navbar-toggler {
+  color: white !important;
+}
+
+/* END OF DROPDOWN MENU */
 
 @media only screen and (max-width: 768px) {
   nav .dropdown .dropdown-menu {

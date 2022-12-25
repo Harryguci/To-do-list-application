@@ -6,12 +6,18 @@
             <div class="item">
                 <div class="row">
                     <div class="thumbnail">
-                        <div class="circle my-auto">
+                        <div class="form-check">
+                            <input class="form-check-input" name="id" type="checkbox" value="{{this._id}}"
+                                id="{{this._id}}">
+                        </div>
+                        <div class="circle my-auto d-none d-md-flex">
                             <h3 class="mx-auto text-white fs-1 first-char">A</h3>
                         </div>
+                        <div class="rectangle my-auto d-block d-md-none"
+                            style="width: 5px; height: 100%; background: red;"></div>
                     </div>
-                    <div class="col-10">
-                        <div class="content">
+                    <div class="col-8 col-md-10 d-flex">
+                        <div class="content my-auto">
                             <div class="row">
                                 <h3 class="name">{{this.title}}</h3>
                             </div>
@@ -20,7 +26,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-1">
+                    <div class="col-3 col-md-1">
                         <div class="row mb-2">
                             {{!--
 
