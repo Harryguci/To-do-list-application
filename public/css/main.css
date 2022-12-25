@@ -10,6 +10,19 @@ ol {
   list-style: none;
   padding: 0;
 }
+
+.btn-1 {
+  background: none;
+  border: 1px solid #ffffff;
+  padding: 10px 20px;
+  border-radius: 0;
+  color: white;
+}
+.btn-1:hover {
+  background: #ffffff;
+  color: #1572a1;
+}
+
 .navbar-brand {
   color: #eef1ff;
   font-weight: bold;
@@ -18,6 +31,7 @@ ol {
 }
 .navbar {
   background: #175b7e;
+  background: rgb(100, 100, 255);
 }
 .navbar-brand:hover,
 .navbar-brand:focus {
@@ -43,11 +57,20 @@ ol {
   background: #ffffff;
 }
 nav .dropdown .dropdown-menu {
+  border-radius: 0;
+  background-color: rgb(120, 120, 255);
   animation-name: dropdown-move-in;
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-timing-function: ease-out;
 }
+nav .dropdown .dropdown-menu .dropdown-item {
+  color: white;
+}
+nav .dropdown .dropdown-menu .dropdown-item:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
 @media only screen and (max-width: 768px) {
   nav .dropdown .dropdown-menu {
     animation-name: none;
@@ -97,15 +120,68 @@ input[type="checkbox"] {
 }
 footer {
   gap: 12px;
-  background: #1572a1;
+  background: rgb(100, 100, 255);
   color: #eef1ff !important;
 }
 footer h3 {
   margin: 20px 0;
+  font-weight: bold;
 }
 footer ul li {
   padding: 10px 20px;
 }
 footer ul li:hover {
   background: rgba(255, 255, 255, 0.2);
+}
+footer ul li a,
+footer ul li button {
+  text-decoration: none;
+  color: white;
+  padding: 0 !important;
+}
+
+footer ul li a:hover,
+button:hover {
+  color: rgb(255, 150, 150) !important;
+}
+.notification-container {
+  overflow: hidden;
+  top: 30px;
+  left: 30px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  animation: notification-move-in 0.8s ease-in-out both;
+}
+.notification__head {
+  background: rgb(100, 100, 200);
+}
+.notification__foot .processor {
+  width: 100%;
+  height: 10px;
+  background: orange;
+  animation: processing 5s linear both;
+}
+@keyframes notification-move-in {
+  0% {
+    transform: translate(0, -300px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+@keyframes notification-move-out {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(0, -300px);
+  }
+}
+@keyframes processing {
+  0% {
+    transform: translate(-100%, 0);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
 }

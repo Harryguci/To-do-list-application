@@ -30,7 +30,7 @@
                         </li>
                         <li>
                             <b class="label">Time: </b>
-                            <p>{{this.hour}} {{this.date}}/{{this.month}}/{{this.year}}</p>
+                            <p><b>{{this.hour}}</b> {{this.date}}/{{this.month}}/{{this.year}}</p>
                         </li>
                         <li>
                             <b class="label">Content: </b>
@@ -45,8 +45,8 @@
                             data-target="#modalDelete" value="/delete/{{this._id}}">
                             Delete
                         </button>
-                        {{/if}}
-                        {{#else}}
+
+                        {{else}}
                         <button type="button" class="btn btn-outline-primary" data-toggle="modal"
                             data-target="#modalDelete" value="/edit/{{this._id}}">
                             Update
@@ -55,7 +55,8 @@
                             data-target="#modalDelete" value="/finish/{{this._id}}">
                             Finished
                         </button>
-                        {{/else}}
+
+                        {{/if}}
                     </div>
                 </div>
             </div>
@@ -99,14 +100,12 @@
                 </div>
                 <div class="item__foot">
                     <div class="btn-group" role="group" aria-label="Button group name">
-
                         {{#if this.finished}}
                         <button type="button" class="btn btn-outline-primary" data-toggle="modal"
                             data-target="#modalDelete" value="/delete/{{this._id}}">
                             Delete
                         </button>
-                        {{/if}}
-                        {{#else}}
+                        {{else}}
                         <button type="button" class="btn btn-outline-primary" data-toggle="modal"
                             data-target="#modalDelete" value="/edit/{{this._id}}">
                             Update
@@ -115,7 +114,7 @@
                             data-target="#modalDelete" value="/finish/{{this._id}}">
                             Finished
                         </button>
-                        {{/else}}
+                        {{/if}}
                     </div>
                 </div>
             </div>

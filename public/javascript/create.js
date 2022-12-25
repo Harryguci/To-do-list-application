@@ -18,13 +18,50 @@ function checkValidate() {
     h = 0;
   }
   if (m < 0 || m >= 60) m = 0;
-  console.log(h, m);
+
   h = String(h);
   m = String(m);
   if (h.length == 1) h = "0" + h;
   if (m.length == 1) m = "0" + m;
 
-  if (h != undefined && m != undefined) hour.value = `${h}:${m}`;
+  if (h !== "undefined" && m !== "undefined") {
+    console.log("test hour");
+    hour.value = `${h}:${m}`;
+  } else {
+    hour.value = `ERROR`;
+  }
+}
+
+function checkFormSub(event) {
+  if (hour.value === "ERROR") {
+    event.preventDefault();
+    alert("Time is not valid");
+    return;
+  }
+  if (document.querySelector('input[name="date"]').value === "") {
+    event.preventDefault();
+    alert("Date is not valid");
+    return;
+  }
+  if (document.querySelector('input[name="month"]').value === "") {
+    event.preventDefault();
+    alert("Month is not valid");
+    return;
+  }
+  if (document.querySelector('input[name="year"]').value === "") {
+    event.preventDefault();
+    alert("Year is not valid");
+    return;
+  }
+  if (
+    document.querySelector('select[name="type"]').value === null ||
+    document.querySelector('select[name="type"]').value === "--Select One--"
+  ) {
+    event.preventDefault();
+    alert("Type of work is not valid");
+    return;
+  }
 }
 
 hour.addEventListener("focusout", checkValidate);
+window.checkFormSub = checkFormSub;

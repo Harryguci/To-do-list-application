@@ -8,6 +8,8 @@ const EditController = require("../app/controllers/editController");
 
 const finishRouter = require("./finish");
 const deleteRouter = require("./delete");
+const aboutRouter = require("./about");
+const searchRouter = require("./search");
 
 // Create a new work
 router.get("/creatework", WorkController.create);
@@ -25,10 +27,15 @@ router.get("/edit", EditController.show);
 // Finish
 router.use("/finish", finishRouter);
 
+// Search
+router.use("/search", searchRouter);
+
+// About
+router.use("/about", aboutRouter);
+
 // Show all works
 router.get("/all/json", WorkController.showAllJson);
 router.get("/", WorkController.show);
 router.get("/:slug", WorkController.showError);
-
 
 module.exports = router;

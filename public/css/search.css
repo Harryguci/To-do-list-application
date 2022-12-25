@@ -1,0 +1,15 @@
+input {
+  border-radius: 10px;
+  border: 1px solid rgb(100, 100, 200);
+  outline: none !important;
+  padding: 10px 0 10px 20px;
+}
+input:focus {
+  border: 2px solid rgb(100, 100, 200);
+}
+.item a {
+  text-decoration: none;
+}
+h1 {
+    font-size: 3rem;
+}

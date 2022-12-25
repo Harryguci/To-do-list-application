@@ -5,7 +5,7 @@
     <div class="row mt-5">
         <div class="col">
             <div class="wrap">
-                <form action="/create/new" method="POST">
+                <form action="/create/new" method="POST" onsubmit="checkFormSub(event)">
                     <div class="d-flex mt-4">
                         <label class="col-12 col-md-1" for="title">Title</label>
                         <input class="col-12 col-md" name="title" id="title" type="text" placeholder="Work's Title"
