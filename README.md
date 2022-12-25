@@ -16,3 +16,6 @@
 
 # Running
 <p>npm start</p>
+
+# Author
+Harryguci: <a href="https://www.facebook.com/chu.huy.020808/">https://www.facebook.com/chu.huy.020808/</a>
