@@ -25,6 +25,18 @@ class editController {
       .catch((err) => next(err));
   };
 
+  
+  // [GET] /edit/:id
+  /*
+    BUG: Can't load static files (css, javascript).
+  */
+  editOndDocument = async (req, res, next) => {
+    res.render("Edit", {
+      titlePage: "Edit page",
+      css: ["edit.css"],
+    });
+  };
+
   // [POST] /edit/detail
   // Delete multiple documents with a POST request, that has an id array.
   // req.body : {id: .. ..}
@@ -62,12 +74,6 @@ class editController {
         res.redirect("/error");
         break;
     }
-  };
-
-  // [GET] /edit/:id
-  // Edit one document.
-  editOne = async (req, res, next) => {
-    res.send(req.params.id);
   };
 }
 

@@ -1,15 +1,14 @@
 const express = require("express");
 const router = express.Router();
 
-// const Work = require("../app/models/Work");
 const WorkController = require("../app/controllers/workController");
 const CreateController = require("../app/controllers/createController");
-const EditController = require("../app/controllers/editController");
 
 const finishRouter = require("./finish");
 const deleteRouter = require("./delete");
 const aboutRouter = require("./about");
 const searchRouter = require("./search");
+const editRouter = require("./edit");
 
 // Create a new work
 router.get("/creatework", WorkController.create);
@@ -20,9 +19,7 @@ router.post("/create/new", CreateController.create);
 router.use("/delete", deleteRouter);
 
 // Edit
-router.post("/edit/detail", EditController.editDetail);
-router.get("/edit/:id", EditController.editOne);
-router.get("/edit", EditController.show);
+router.use("/edit", editRouter);
 
 // Finish
 router.use("/finish", finishRouter);

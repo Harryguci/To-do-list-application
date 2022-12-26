@@ -7,6 +7,7 @@
     <meta name="author" content="Harryguci">
     <meta name="keywords" content="Calendar, To do list, plan">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calendar: {{titlePage}}</title>
     <link rel="shortcut icon" href="./images/monthly-calendar-svgrepo-com.svg" type="image/x-icon">
@@ -47,7 +48,7 @@
 
     {{!-- Other external files --}}
     {{#each css}}
-    <link rel="stylesheet" href="/css/{{this}}">
+    <link rel="stylesheet" href="./css/{{this}}">
     {{/each}}
 
 </head>
@@ -99,24 +100,6 @@
                             </span>
                         </button>
                     </form>
-                    <script>
-                        /*
-                            *** Check value of The input. ***
-
-                            IF : the value is null (or empty) then the button will be disabled
-                            ELSE : the button will be enabled
-                        */
-
-                        var searchInput = document.querySelector('form[name="top-search-form"] input');
-                        var buttonSearch = document.querySelector('form[name="top-search-form"] button');
-                        searchInput.addEventListener('keyup', function () {
-                            if (searchInput.value) {
-                                buttonSearch.classList.remove('disabled');
-                            } else {
-                                buttonSearch.classList.add('disabled');
-                            }
-                        });
-                    </script>
                 </div>
             </div>
         </nav>
@@ -135,7 +118,9 @@
                 </div>
                 <div class="col-12 col-md-4 col-xl-3">
                     <h3>About</h3>
-                    <p>Description</p>
+                    <p>My full name is CHU QUANG HUY. I am an intern Web Developer. I have been studying at the
+                        University of Transport and Communications (Hanoi, Vietnam) since 2021. I always try hard and
+                        improve myself every day. My dream is to become a great programmer.</p>
                     <a href="/about" class="btn btn-1">Read more</a>
                 </div>
                 <div class="col-12 col-md-4 col-xl-3">
@@ -224,8 +209,10 @@
 <script type="module" src="./javascript/notification.js" defer></script>
 <script type="module" src="./javascript/copybutton.js" defer></script>
 
+{{#if javascript}}
 {{#each javascript}}
 <script type="{{this.type}}" src="./javascript/{{this.file}}" defer></script>
 {{/each}}
+{{/if}}
 
 </html>
