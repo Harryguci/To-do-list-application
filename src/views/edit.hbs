@@ -27,7 +27,7 @@
         {{#each work}}
         <div class="row mb-3">
             <div class="col-12">
-                <div class="item">
+                <div class="item item-show">
                     <div class="row">
                         <div class="thumbnail">
                             <div class="form-check">
@@ -63,7 +63,7 @@
                                 {{!-- <a class="btn btn-outline-primary" href="/update/{{this._id}}">Edit</a> --}}
                                 <button type="button" class="btn btn-outline-primary" data-toggle="modal"
                                     data-target="#modalDelete" value="/edit/{{this._id}}">
-                                    Update
+                                    Edit
                                 </button>
                             </div>
                         </div>
@@ -85,3 +85,4 @@
 
 <script type="module" src="./javascript/modal.js" defer></script>
 <script type="module" src="./javascript/edit.js" defer></script>
+<script type="module" src="./javascript/effects/item-show.js" defer></script>

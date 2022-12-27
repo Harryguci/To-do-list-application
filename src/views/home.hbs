@@ -15,7 +15,7 @@
         {{#if work_today.length}}
         {{#each work_today}}
         <div class="col-md-3 col">
-            <div class="item">
+            <div class="item item-show">
                 {{#if this.finished}}
                 <span class="badge rounded-0">Done</span>
                 {{/if}}
@@ -50,7 +50,7 @@
                         {{else}}
                         <button type="button" class="btn btn-outline-primary" data-toggle="modal"
                             data-target="#modalDelete" value="/edit/{{this._id}}">
-                            Update
+                            Edit
                         </button>
                         <button type="button" class="btn btn-outline-primary" data-toggle="modal"
                             data-target="#modalDelete" value="/finish/{{this._id}}">
@@ -81,7 +81,7 @@
         {{#if work.length}}
         {{#each work}}
         <div class="col-12 col-md-3">
-            <div class="item">
+            <div class="item item-show">
                 {{#if this.finished}}
                 <span class="badge rounded-0">Done</span>
                 {{/if}}
@@ -115,7 +115,7 @@
                         {{else}}
                         <button type="button" class="btn btn-outline-primary" data-toggle="modal"
                             data-target="#modalDelete" value="/edit/{{this._id}}">
-                            Update
+                            Edit
                         </button>
                         <button type="button" class="btn btn-outline-primary" data-toggle="modal"
                             data-target="#modalDelete" value="/finish/{{this._id}}">
@@ -136,3 +136,4 @@
 </div>
 
 <script type="module" src="./javascript/modal.js" defer></script>
+<script type="module" src="./javascript/effects/item-show.js" defer></script>

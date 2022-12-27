@@ -197,3 +197,19 @@ button:hover {
     transform: translate(0, 0);
   }
 }
+
+.item-show {
+  transform: translate(0, 100px);
+  opacity: 0;
+  animation-name: item-show;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+}
+
+@keyframes item-show {
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
