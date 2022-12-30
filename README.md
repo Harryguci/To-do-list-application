@@ -32,9 +32,11 @@
 # Running
 
 <ul>
-    <li>Step 1: Create a new MongoDB database(Detail: <a href="https://www.mongodb.com/docs/compass/current/connect/">https://www.mongodb.com/docs/compass/current/connect/</a>)</li>
+    <li>Step 1: Install MongoDB (And MongDB Compass) (Detail: <a href="https://www.mongodb.com/docs/compass/current/connect/">https://www.mongodb.com/docs/compass/current/connect/</a>)</li>
+    <li>Step 2: Install Node js, Express, npm.</li>
     <li>Step 2: In The Terminal enter 'npm start'</li>
     <li>Step 3: In your browser access <i>http://localhost:3000/</i></li>
+    <li>Quit: In your Terminal enter Ctrl + C (In Window)</li>
 </ul>
 
 # Author
