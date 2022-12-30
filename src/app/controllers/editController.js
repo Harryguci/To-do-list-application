@@ -29,6 +29,7 @@ class editController {
   // [GET] /edit/:id
   /*
     BUG: Can't load static files (css, javascript).
+    
   */
   editOndDocument = async (req, res, next) => {
     res.render("Edit", {

@@ -20,7 +20,7 @@ class deleteController {
   };
 
   // [GET] /delete/:id
-  // Delete a document, which has id.
+  // Delete a document, which has  the {id}.
   deleteById = (req, res, next) => {
     try {
       var id = req.params.id;
@@ -62,7 +62,7 @@ class deleteController {
   };
 
   // [POST] /delete/detail
-  // Delete multiple documents with a POST request, that has an id array.
+  // Delete multiple Documents from a POST request, which contains an id array.
   // req.body : {id: .. ..}
   deleteDetail = async (req, res, next) => {
     var ids = req.body.id;
@@ -76,7 +76,7 @@ class deleteController {
     res.redirect("back"); // back to the previous page.
   };
 
-  /* Delete all (delete without move to trash bin) */
+  /* Delete all (Delete without move Doc to trash bin) (For Development)*/
   deleteAll = function (req, res, next) {
     try {
       Work.deleteMany({}, () => {

@@ -2,7 +2,7 @@ const Work = require("../models/Work");
 
 class finishController {
   // [GET] /finish
-  // Show all the finished works.
+  // Show all the works, which had finished.
   show = (req, res, next) => {
     Work.find({ finished: true })
       .then((arr) => {
@@ -21,7 +21,7 @@ class finishController {
   };
 
   // [GET] /finish/:id
-  // Set finish property is true
+  // Set the finish property to true
   finishOne = async (req, res, next) => {
     var id = req.params.id;
     Work.findOneAndUpdate({ _id: id }, { finished: "true" }, { new: true })
