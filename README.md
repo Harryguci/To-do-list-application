@@ -1,7 +1,16 @@
 # To do list application:
 
+# Description
+
+<h2>Application</h2>
+<ul>
+    <li>CRUD Works</li>
+    <li>View works, which have to finish today</li>
+    <li>Search a Work</li>
+    <li>Check history of works, which finished</li>
+</ul>
+
 <h2>The application has been built with Node JS (Express)</h2>
-<p>Some text for Description will have finished before</p>
 <a href="https://files.fm/u/ca485fp49#/view/des1.png"><img src="https://files.fm/thumb_show.php?i=ry4u2akn8"></a>
 <a href="https://files.fm/u/ca485fp49#/view/des2.png"><img src="https://files.fm/thumb_show.php?i=cwxydh7kr"></a>
 <a href="https://files.fm/u/ca485fp49#/view/des2_5.png"><img src="https://files.fm/thumb_show.php?i=dvyn424ev"></a>
