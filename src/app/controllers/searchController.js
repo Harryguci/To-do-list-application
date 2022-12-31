@@ -23,7 +23,7 @@ class searchController {
         arr = arr
           .map((work) => (work = work.toObject()))
           .filter((work) => {
-            return work.title.toLowerCase().startsWith(req.query.q.toLowerCase());
+            return work.title.toLowerCase().includes(req.query.q.toLowerCase());
           });
 
         //        arr = arr.map((work) => (work = work.toObject()));

@@ -10,7 +10,13 @@ const path = require("path");
 function getTimeNow(x) {
   var date = new Date();
   date.setDate(date.getDate() + x);
-  return date;
+  date.setMonth(parseInt(date.getMonth()) + 1);
+
+  return {
+    date: date.getDate(),
+    month: parseInt(date.getMonth()) == 0 ? 12 : date.getMonth(),
+    year: date.getFullYear(),
+  };
 }
 
 class WorkController {
@@ -21,16 +27,23 @@ class WorkController {
       - work: get all works (aren't finished yet)
   
       2. Merge two Process --> Render into Home page
-    */
+  */
   show = async function (req, res, next) {
     const handleWorksToday = new Promise((resolve, reject) => {
-      Work.find({
-        date: { $gte: getTimeNow(-1).getDate(), $lte: getTimeNow(1).getDate() },
-        month: getTimeNow(0).getMonth() + 1,
-        year: getTimeNow(0).getFullYear(),
-        delete: false,
-      })
-        .sort({ createAt: "asc" })
+      const Query = Work.where({ delete: false })
+        .where({
+          date: [getTimeNow(0).date, getTimeNow(1).date, getTimeNow(-1).date],
+        })
+        .where({
+          month: [
+            getTimeNow(0).month,
+            getTimeNow(1).month,
+            getTimeNow(-1).month,
+          ],
+        });
+
+      Query.find({})
+        .sort({ date: "asc", month: "asc", year: "asc" })
         .then((arr) => {
           arr = Array.from(arr);
           arr = arr.map((doc) => (doc = doc.toObject()));
@@ -42,7 +55,7 @@ class WorkController {
 
     const handleWorksAll = new Promise((resolve, reject) => {
       Work.find({ delete: false })
-        .sort({ createAt: "asc" })
+        .sort({ date: "asc", month: "asc", year: "asc" })
         .then((arr) => {
           arr = Array.from(arr);
           arr = arr.map((doc) => (doc = doc.toObject()));
