@@ -50,7 +50,7 @@
             <li><i>npm i express</i></li>
         </ul>
     </li>
-    <li>Step 4: In The Terminal enter <i>'npm start'</i></li>
+    <li>Step 4: Start local server: In The Terminal enter <i>'npm start'</i></li>
     <li>Step 5: In your browser access <i>http://localhost:3000/</i></li>
     <li>Quit: In your Terminal enter Ctrl + C (In Window)</li>
 </ul>
