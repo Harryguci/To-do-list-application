@@ -42,9 +42,16 @@
 
 <ul>
     <li>Step 1: Install MongoDB (And MongDB Compass) (Detail: <a href="https://www.mongodb.com/docs/compass/current/connect/">https://www.mongodb.com/docs/compass/current/connect/</a>)</li>
-    <li>Step 2: Install Node js, Express, npm.</li>
-    <li>Step 2: In The Terminal enter 'npm start'</li>
-    <li>Step 3: In your browser access <i>http://localhost:3000/</i></li>
+    <li>Step 2: Download and Install Node js (Detail: <a href="https://nodejs.org/en/">https://nodejs.org/en/</a>)</li>
+    <li>Step 3: Install Express, npm. Enter in your terminal:
+        <ul>
+            <li><i>npm install</i></li>
+            <li><i>npm init</i></li>
+            <li><i>npm i express</i></li>
+        </ul>
+    </li>
+    <li>Step 4: In The Terminal enter <i>'npm start'</i></li>
+    <li>Step 5: In your browser access <i>http://localhost:3000/</i></li>
     <li>Quit: In your Terminal enter Ctrl + C (In Window)</li>
 </ul>
 
