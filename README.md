@@ -52,7 +52,9 @@
     </li>
     <li>Step 4: Start local server: In The Terminal enter <i>'npm start'</i></li>
     <li>Step 5: In your browser access <i>http://localhost:3000/</i></li>
-    <li>Quit: In your Terminal enter Ctrl + C (In Window)</li>
+    <li>Quit: In your Terminal enter Ctrl + C (In Window).
+        <ul><li> Turn Off: server press Y.</li><li> Cancel: press N.</li></ul>
+    </li>
 </ul>
 
 # Author
