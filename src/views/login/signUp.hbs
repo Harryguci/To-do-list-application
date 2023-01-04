@@ -1,0 +1,28 @@
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col col-md-6">
+            <h1>Sign Up</h1>
+            <form action="/login/sign-up" method="POST">
+                <div class="mb-3">
+                    <label for="" class="form-label">Username</label>
+                    <input type="text" class="form-control" name="username" id="username"
+                        aria-describedby="username-help" placeholder="your account">
+                    <small id="username-help" class="form-text text-muted">Help text</small>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="">
+                </div>
+                <div class="my-3">
+                    <div class="mb-3 d-flex">
+                        <input type="checkbox" class="form-check-input my-auto" name="rules" id="rules" required>
+                        <label for="rules" class="form-label my-auto mx-2">Rules</label>
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <button type="submit" class="btn btn-outline-primary px-5">Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

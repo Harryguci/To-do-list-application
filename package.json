@@ -1,11 +1,18 @@
 {
   "dependencies": {
+    "bcrypt": "^5.1.0",
+    "bcrypt-nodejs": "^0.0.3",
+    "bootstrap": "^5.2.3",
     "express": "^4.18.2",
     "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
+    "flash": "^1.1.0",
     "handlebars": "^4.7.7",
-    "mongoose": "^6.8.0",
+    "mongoose": "^6.8.2",
     "nodemon": "^2.0.20",
-    "npm": "^9.2.0"
+    "npm": "^9.2.0",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0"
   },
   "name": "to-do-application",
   "version": "1.0.0",
@@ -14,6 +21,14 @@
   "scripts": {
     "start": "nodemon ./src/index.js"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "harryguci",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Harryguci/To-do-list-application.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Harryguci/To-do-list-application/issues"
+  },
+  "homepage": "https://github.com/Harryguci/To-do-list-application#readme"
 }

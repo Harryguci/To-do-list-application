@@ -44,7 +44,7 @@
 
 
     {{!-- Main CSS --}}
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="/css/main.css">
 
     {{!-- Other external files --}}
     {{#each css}}
@@ -100,6 +100,19 @@
                             </span>
                         </button>
                     </form>
+                    <div class="p-2 bg-black rounded-3 bg-opacity-10 mx-2">
+                        {{#if user.length}}
+                        <a href="/account" class="my-auto px-3 nav-link text-white d-flex">
+                            <span class="material-symbols-outlined my-auto d-block"
+                                style="margin-right: 5px; font-size: 2rem;">
+                                account_circle
+                            </span>
+                            <b class="d-block my-auto">{{user}}</b>
+                        </a>
+                        {{else}}
+                        <a href="/login" class="px-3 nav-link text-white">Login</a>
+                        {{/if}}
+                    </div>
                 </div>
             </div>
         </nav>

@@ -1,4 +1,3 @@
-const { reset } = require("nodemon");
 const Work = require("../models/Work");
 
 class searchController {

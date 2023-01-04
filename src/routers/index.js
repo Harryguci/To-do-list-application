@@ -9,10 +9,12 @@ const deleteRouter = require("./delete");
 const aboutRouter = require("./about");
 const searchRouter = require("./search");
 const editRouter = require("./edit");
+const loginRouter = require("./login");
+const isAuthenticated = require("../middleware/isAuthenticated"); // middleware for authenticating users
 
 // Create a new work
 router.get("/creatework", WorkController.create);
-router.get("/create", CreateController.show);
+router.get("/create", isAuthenticated, CreateController.show);
 router.post("/create/new", CreateController.create);
 
 // Delete works
@@ -29,6 +31,9 @@ router.use("/search", searchRouter);
 
 // About
 router.use("/about", aboutRouter);
+
+// Login
+router.use("/login", loginRouter);
 
 // Show all works
 router.get("/all/json", WorkController.showAllJson);

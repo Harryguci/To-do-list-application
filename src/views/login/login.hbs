@@ -1,0 +1,23 @@
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col col-md-6">
+            <h1>Login</h1>
+            <form action="/login" method="POST">
+                <div class="mb-3">
+                    <label for="" class="form-label fw-bold">Username</label>
+                    <input type="text" class="form-control" name="username" id="username"
+                        aria-describedby="username-help" placeholder="your account">
+                    <small id="username-help" class="form-text text-muted">Username must validate</small>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label fw-bold">Password</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="">
+                </div>
+                <div class="btn-group">
+                    <button type="submit" class="btn btn-outline-primary px-4">Send</button>
+                    <a href="/login/sign-up" class="btn btn-outline-primary px-4">Sign Up</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -64,7 +64,11 @@ class WorkController {
         })
         .catch((err) => reject(err));
     });
+    // console.log("USER: ", req.user);
+    var currentUser;
 
+    if (req.user) currentUser = req.user.username;
+    console.log("USER: ", currentUser);
     Promise.all([handleWorksToday, handleWorksAll]).then((result) => {
       {
         if (result.length == 2 && result[0] && result[1]) {
@@ -76,6 +80,7 @@ class WorkController {
             css: [`home.css`],
             work,
             work_today,
+            user: currentUser,
           });
         } else {
           redirect("/error");
