@@ -100,7 +100,7 @@
                             </span>
                         </button>
                     </form>
-                    <div class="p-2 bg-black rounded-3 bg-opacity-10 mx-2">
+                    <div class="p-2 bg-black rounded-3 bg-opacity-10 my-3 mx-md-2 my-md-0">
                         {{#if user.length}}
                         <a href="/account" class="my-auto px-3 nav-link text-white d-flex">
                             <span class="material-symbols-outlined my-auto d-block"
@@ -117,7 +117,7 @@
             </div>
         </nav>
     </header>
-    <main class="min-vh-100">
+    <main class="min-vh-100 my-5">
         {{{body}}}
     </main>
     <footer class="py-5">
@@ -184,16 +184,16 @@
     <div class="modal fade center" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modalDeleteTitle"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+            <div class="modal-content overflow-hidden">
+                <div class="modal-header bg-primary bg-opacity-75">
+                    <h5 class="modal-title text-white" id="exampleModalLongTitle">Modal title</h5>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body fs-5">
                     ...
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <a href="/" type="button" class="btn btn-primary btn-delete">Delete</a>
+                <div class="modal-footer d-flex justify-content-center btn-group gap-0">
+                    <button type="button" class="btn btn-secondary col-6 mx-0" data-dismiss="modal">Cancel</button>
+                    <a href="/" type="button" class="btn btn-primary btn-delete col-4 mx-0">Delete</a>
                 </div>
             </div>
         </div>
@@ -211,6 +211,7 @@
             <div class="processor"></div>
         </div>
     </div> --}}
+
 </body>
 
 <!-- BOOTSTRAP 5: JavaScript Bundle with Popper -->

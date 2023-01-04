@@ -9,7 +9,8 @@ class searchController {
     } else {
       res.render("./search/search", {
         titlePage: "Search",
-        css: ["search.css"],
+      user: req.user.username,
+      css: ["search.css"],
       });
       //   res.json({ render: "Search page" });
     }

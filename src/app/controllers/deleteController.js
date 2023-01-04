@@ -11,6 +11,7 @@ class deleteController {
           title: "Trash Bin",
           css: [`edit.css`],
           work: arr,
+          user: req.user.username,
           empty: arr.length === 0,
         });
       });

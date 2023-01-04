@@ -8,7 +8,7 @@ const Work = new Schema({
   date: { type: "string", default: "dd" },
   month: { type: "string", default: "mm" },
   year: { type: "string", default: "yyyy" },
-
+  user: { type: "string", default: "" },
   content: { type: "string", default: "" },
   createAt: { type: "date", default: Date.now() },
   updateAt: { type: "date", default: Date.now() },

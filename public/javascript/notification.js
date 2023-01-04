@@ -29,7 +29,7 @@ async function notificationHandler(title, content) {
   // CALL PROMISE
   setContent
     .then((notificationBlock) => {
-      $("html").append(notificationBlock);
+      $("body").append(notificationBlock);
     })
     .then(await new Promise((resolve) => setTimeout(resolve, 5000)))
     .then(

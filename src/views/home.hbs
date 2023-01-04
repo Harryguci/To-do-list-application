@@ -11,7 +11,7 @@
             }, 1000);
         </script>
     </div>
-    <div class="row mt-4" style="row-gap: 20px;">
+    <div class="row mt-4 work-today-container" style="row-gap: 20px;" data-work-length="{{work_today.length}}">
         {{#if work_today.length}}
         {{#each work_today}}
         <div class="col-md-3 col">
@@ -137,3 +137,4 @@
 
 <script type="module" src="./javascript/modal.js" defer></script>
 <script type="module" src="./javascript/effects/item-show.js" defer></script>
+<script type="module" src="./javascript/main.js" defer></script>

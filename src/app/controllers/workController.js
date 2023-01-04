@@ -12,12 +12,18 @@ function getTimeNow(x) {
   date.setDate(date.getDate() + x);
   date.setMonth(parseInt(date.getMonth()) + 1);
 
-  // console.log("Date", date);
+  // console.log("Date", date.getDate() + " " + date.getMonth() + " " + date.getFullYear());
 
   return {
-    date: date.getDate(),
-    month: parseInt(date.getMonth()) == 0 ? 12 : date.getMonth(),
-    year: date.getFullYear(),
+    date:
+      date.getDate().toString().length === 1
+        ? "0" + date.getDate().toString()
+        : date.getDate().toString(),
+    month:
+      date.getMonth().toString().length === 1
+        ? "0" + date.getMonth().toString()
+        : date.getMonth().toString(),
+    year: date.getFullYear().toString(),
   };
 }
 
@@ -31,31 +37,31 @@ class WorkController {
       2. Merge two Process --> Render into Home page
   */
   show = async function (req, res, next) {
-    var dateNow = new Date();
-    
-    // console.log(dateNow.getDate()); 
+    var currentDate = getTimeNow(0);
 
     const handleWorksToday = new Promise((resolve, reject) => {
-      const Query = Work.where({
-        date: dateNow.getDate(),
-      })
-      // .where({
-      //   month: [getTimeNow(0).month, getTimeNow(1).month, getTimeNow(-1).month],
-      // });
+      const Query = Work.where({ user: req.user.username })
+        .where({ delete: false })
+        .where({
+          date: currentDate.date,
+        })
+        .where({
+          month: currentDate.month,
+        })
+        .where({ year: currentDate.year });
 
       Query.find({})
         .sort({ date: "asc", month: "asc", year: "asc" })
         .then((arr) => {
           arr = Array.from(arr);
           arr = arr.map((doc) => (doc = doc.toObject()));
-
           resolve(arr);
         })
         .catch((err) => reject(err));
     });
 
     const handleWorksAll = new Promise((resolve, reject) => {
-      Work.find({ delete: false })
+      Work.find({ delete: false, user: req.user.username })
         .sort({ date: "asc", month: "asc", year: "asc" })
         .then((arr) => {
           arr = Array.from(arr);

@@ -19,13 +19,13 @@ class editController {
           titlePage: "Edit page",
           css: ["edit.css"],
           bin_count: count,
+          user: req.user.username,
           work: arr,
         });
       })
       .catch((err) => next(err));
   };
 
-  
   // [GET] /edit/:id
   /*
     BUG: Can't load static files (css, javascript).

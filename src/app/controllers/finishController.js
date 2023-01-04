@@ -12,6 +12,7 @@ class finishController {
         res.render("finish", {
           titlePage: "Finish Page",
           work: arr,
+          user: req.user.username,
           css: ["finish.css"],
         });
       })

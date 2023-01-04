@@ -37,7 +37,7 @@ router.use("/login", loginRouter);
 
 // Show all works
 router.get("/all/json", WorkController.showAllJson);
-router.get("/", WorkController.show);
+router.get("/", isAuthenticated, WorkController.show);
 router.get("/:slug", WorkController.showError);
 
 module.exports = router;
