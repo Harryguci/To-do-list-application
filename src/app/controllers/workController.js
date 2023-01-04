@@ -12,6 +12,8 @@ function getTimeNow(x) {
   date.setDate(date.getDate() + x);
   date.setMonth(parseInt(date.getMonth()) + 1);
 
+  // console.log("Date", date);
+
   return {
     date: date.getDate(),
     month: parseInt(date.getMonth()) == 0 ? 12 : date.getMonth(),
@@ -29,18 +31,17 @@ class WorkController {
       2. Merge two Process --> Render into Home page
   */
   show = async function (req, res, next) {
+    var dateNow = new Date();
+    
+    // console.log(dateNow.getDate()); 
+
     const handleWorksToday = new Promise((resolve, reject) => {
-      const Query = Work.where({ delete: false })
-        .where({
-          date: [getTimeNow(0).date, getTimeNow(1).date, getTimeNow(-1).date],
-        })
-        .where({
-          month: [
-            getTimeNow(0).month,
-            getTimeNow(1).month,
-            getTimeNow(-1).month,
-          ],
-        });
+      const Query = Work.where({
+        date: dateNow.getDate(),
+      })
+      // .where({
+      //   month: [getTimeNow(0).month, getTimeNow(1).month, getTimeNow(-1).month],
+      // });
 
       Query.find({})
         .sort({ date: "asc", month: "asc", year: "asc" })
