@@ -10,7 +10,7 @@ class editController {
         .catch((err) => reject(err));
     });
 
-    Work.find({ delete: "false" })
+    Work.find({ delete: "false", user: req.user.username })
       .then((arr) => {
         arr = Array.from(arr);
         arr = arr.map((doc) => (doc = doc.toObject()));
@@ -33,6 +33,7 @@ class editController {
   */
   editOndDocument = async (req, res, next) => {
     res.render("Edit", {
+      user: req.user.username,
       titlePage: "Edit page",
       css: ["edit.css"],
     });

@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const loginController = require("../app/controllers/loginController");
 const passport = require("../middleware/passport");
-
+const isLogin = require("../middleware/isLogin");
 router.get("/successful", function (req, res) {
   res.json({
     user: req.user,
@@ -14,24 +14,24 @@ router.get("/fail", function (req, res) {
     status: "Login Failed",
   });
 });
-
 router.get("/sign-up", loginController.signUp);
 router.get("/delete/:id", loginController.deleteUser);
 router.get("/all", loginController.showJson);
-router.get("/", loginController.show);
+router.get("/", isLogin, loginController.show);
 router.post(
   "/",
   passport.authenticate("login", {
-    failureRedirect: "/login/fail", // Nếu xác thực không đúng
-    successRedirect: "/login/successful", // Nếu xác thực được chấp nhận
+    failureRedirect: `/login?notify="Xác thực không đúng"`, // Nếu xác thực không đúng
+    successRedirect: `/?notify="Đăng nhập thành công"`, // Nếu xác thực được chấp nhận
   })
 );
+router.get("/logout", loginController.logout);
 
 router.post(
   "/sign-up",
   passport.authenticate("signup", {
     failureRedirect: "/login/fail",
-    successRedirect: "/login/successful",
+    successRedirect: `/login?notify="Đăng ký thành công"`,
   })
 );
 

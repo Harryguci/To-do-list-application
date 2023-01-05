@@ -3,7 +3,8 @@
 }
 body,
 html {
-  font-family: "Roboto", sans-serif;
+  /* font-family: "Roboto", sans-serif; */
+  font-family: sans-serif;
 }
 h1,
 h2,
@@ -14,6 +15,16 @@ ul,
 ol {
   list-style: none;
   padding: 0;
+}
+.nav-link {
+  font-weight: bold;
+}
+.top-bar {
+  margin: 0;
+  position: relative;
+  height: 40px;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
 }
 
 .btn-1 {
@@ -27,7 +38,9 @@ ol {
   background: #ffffff;
   color: #1572a1;
 }
-
+nav {
+  transition: all 0.3s ease-in-out;
+}
 .navbar-brand {
   color: #eef1ff;
   font-weight: bold;
@@ -104,7 +117,25 @@ nav .dropdown .dropdown-menu .dropdown-item {
     transform: translate(0, 0);
   }
 }
-
+.account-container,
+div:has(> .account-container) {
+  width: fit-content;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out !important;
+}
+.account-container a:last-child {
+  width: 0;
+  text-decoration: none;
+  opacity: 0;
+  font-weight: bold;
+  margin: 0;
+  transition: all 0.3s ease-in-out;
+}
+.account-container:hover a:last-child {
+  opacity: 1;
+  width: fit-content;
+  margin: auto 10px;
+}
 input[type="checkbox"] {
   width: 30px;
   height: 30px;
@@ -112,12 +143,18 @@ input[type="checkbox"] {
 }
 /* BEGIN: MODAL */
 .modal {
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
   background: none !important;
   box-shadow: none !important;
-  animation: modal-show 0.5s ease-in-out both;
+  animation: modal-show 0.5s ease-in-out both !important;
 }
 .modal-content {
+  transition: all 0.5s ease-in-out;
   border-radius: 30px 5px 30px 5px !important;
+}
+.modal-backdrop {
+  transition: all 0.5s ease-in-out;
 }
 @keyframes modal-show {
   0% {
@@ -127,6 +164,14 @@ input[type="checkbox"] {
   100% {
     opacity: 1;
     transform: translate(-50%, -50%);
+  }
+}
+@keyframes modal-hide {
+  0% {
+    transform: translate(-50%, -60%);
+  }
+  100% {
+    transform: translate(-50%, -40%);
   }
 }
 .center {

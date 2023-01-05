@@ -54,6 +54,19 @@
 </head>
 
 <body>
+    {{#if notify}}
+    <!-- Notification -->
+    <div class="top-bar m-0 p-0" style="background: rgb(240,50,50);">
+        <div class="d-flex justify-content-center align-items-center py-1">
+            <p class="my-auto d-block text-white" style="letter-spacing: 2px;">{{notify}}</p>
+        </div>
+    </div>
+    <script>
+        setTimeout(() => {
+            document.querySelector('.top-bar').style.height = '0';
+        }, 3000);
+    </script>
+    {{/if}}
     <header>
         <nav class="navbar navbar-expand-md">
             <div class="container">
@@ -78,17 +91,17 @@
                             <a class="nav-link dropdown-toggle" href="/" id="dropdownEdit" data-bs-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">Edit</a>
                             <div class="dropdown-menu" aria-labelledby="dropdownEdit">
-                                <a class="dropdown-item" href="/edit">Edit</a>
-                                <a class="dropdown-item" href="/create">Create</a>
-                                <a class="dropdown-item" href="/delete">Delete</a>
+                                <a class="dropdown-item fw-bold" href="/edit">Edit</a>
+                                <a class="dropdown-item fw-bold" href="/create">Create</a>
+                                <a class="dropdown-item fw-bold" href="/delete">Delete</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="/" id="dropdownFinish" data-bs-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">Finish</a>
                             <div class="dropdown-menu" aria-labelledby="dropdownFinish">
-                                <a class="dropdown-item" href="/finish">History</a>
-                                <a class="dropdown-item" href="/error">Other Feature..</a>
+                                <a class="dropdown-item fw-bold" href="/finish">History</a>
+                                <a class="dropdown-item fw-bold" href="/error">Other Feature..</a>
                             </div>
                         </li>
                     </ul>
@@ -102,13 +115,16 @@
                     </form>
                     <div class="p-2 bg-black rounded-3 bg-opacity-10 my-3 mx-md-2 my-md-0">
                         {{#if user.length}}
-                        <a href="/account" class="my-auto px-3 nav-link text-white d-flex">
-                            <span class="material-symbols-outlined my-auto d-block"
-                                style="margin-right: 5px; font-size: 2rem;">
-                                account_circle
-                            </span>
-                            <b class="d-block my-auto">{{user}}</b>
-                        </a>
+                        <div class="d-flex account-container">
+                            <a href="/account" class="my-auto px-3 nav-link text-white d-flex">
+                                <span class="material-symbols-outlined my-auto d-block"
+                                    style="margin-right: 5px; font-size: 2rem;">
+                                    account_circle
+                                </span>
+                                <b class="d-block my-auto">{{user}}</b>
+                            </a>
+                            <a href="/login/logout?notify=Đã đăng xuất" class="my-auto text-white">Logout</a>
+                        </div>
                         {{else}}
                         <a href="/login" class="px-3 nav-link text-white">Login</a>
                         {{/if}}
@@ -181,7 +197,7 @@
     </footer>
 
     <!-- Modal -->
-    <div class="modal fade center" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modalDeleteTitle"
+    <div class="modal center" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modalDeleteTitle"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content overflow-hidden">

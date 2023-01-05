@@ -88,6 +88,7 @@ class WorkController {
             work,
             work_today,
             user: currentUser,
+            notify: req.query.notify,
           });
         } else {
           redirect("/error");

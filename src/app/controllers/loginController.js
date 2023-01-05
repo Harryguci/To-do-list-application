@@ -1,5 +1,4 @@
 const User = require("../models/User");
-
 class loginController {
   // [GET] /login
   show = (req, res, next) => {
@@ -54,6 +53,21 @@ class loginController {
         res.json({ error: "Not found" });
       }
     });
+  };
+
+  // [GET] /logout
+  logout = async (req, res, next) => {
+    try {
+      (await await req.session) == null;
+      req.session.destroy();
+    } catch (err) {
+      console.error("Error logging out:", err);
+      return next(new Error("Error logging out"));
+    }
+    var notify = req.query.notify;
+    console.log(notify);
+
+    return res.redirect(`/?notify="${notify}"`);
   };
 }
 

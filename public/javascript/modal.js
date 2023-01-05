@@ -9,9 +9,14 @@ $(document).ready(function () {
     await $("#modalDelete .btn-delete").attr("href", link);
   };
 
-  $('button[data-target="#modalDelete"]').click(function () {
+  $('button[data-target="#modalDelete"]').click(function (event) {
+    // $(".modal-content").css("opacity", "1");
     var currLink = $(this).attr("value");
     handleLink(currLink);
+    $(".modal-content").css({
+      opacity: "1",
+    });
+
     var status = $(this).text().toLowerCase().trim();
 
     switch (status) {
@@ -37,8 +42,19 @@ $(document).ready(function () {
         break;
     }
     $("#modalDelete").modal("show");
+    $(".modal-backdrop").css({
+      opacity: "0.5",
+    });
   });
   $('button[data-dismiss="modal"]').click(function () {
-    $("#modalDelete").modal("hide");
+    $(".modal-content").css({
+      opacity: "0",
+    });
+    $(".modal-backdrop").css({
+      opacity: "0",
+    });
+    setTimeout(() => {
+      
+    }, 500);
   });
 });
