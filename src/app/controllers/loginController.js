@@ -58,7 +58,7 @@ class loginController {
   // [GET] /logout
   logout = async (req, res, next) => {
     try {
-      (await await req.session) == null;
+      // (await await req.session) == null;
       req.session.destroy();
     } catch (err) {
       console.error("Error logging out:", err);

@@ -50,11 +50,12 @@ $(document).ready(function () {
     $(".modal-content").css({
       opacity: "0",
     });
-    $(".modal-backdrop").css({
-      opacity: "0",
-    });
-    setTimeout(() => {
-      
-    }, 500);
+    $(".modal-backdrop")
+      .css({
+        opacity: "0",
+      })
+      .remove();
+
+    $(".modal").modal("hide");
   });
 });

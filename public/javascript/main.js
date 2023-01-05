@@ -5,7 +5,7 @@ notificationHandler(
   "Work Today",
   `Có <b>${workToday.getAttribute(
     "data-work-length"
-  )}</b> công việc phải<br/>hoàn thành hôm nay`
+  )}</b> công việc phải hoàn thành hôm nay`
 );
 
 window.NotificationHandler = notificationHandler;

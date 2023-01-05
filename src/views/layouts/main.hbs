@@ -57,8 +57,8 @@
     {{#if notify}}
     <!-- Notification -->
     <div class="top-bar m-0 p-0" style="background: rgb(240,50,50);">
-        <div class="d-flex justify-content-center align-items-center py-1">
-            <p class="my-auto d-block text-white" style="letter-spacing: 2px;">{{notify}}</p>
+        <div class="d-flex justify-content-center align-items-center py-1 h-100">
+            <p class="my-auto d-block text-white my-auto" style="letter-spacing: 2px;">{{notify}}</p>
         </div>
     </div>
     <script>
@@ -97,12 +97,13 @@
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="/" id="dropdownFinish" data-bs-toggle="dropdown"
+                            <a href="/finish" class="nav-link">Finish</a>
+                            {{!-- <a class="nav-link dropdown-toggle" href="/" id="dropdownFinish" data-bs-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">Finish</a>
                             <div class="dropdown-menu" aria-labelledby="dropdownFinish">
                                 <a class="dropdown-item fw-bold" href="/finish">History</a>
                                 <a class="dropdown-item fw-bold" href="/error">Other Feature..</a>
-                            </div>
+                            </div> --}}
                         </li>
                     </ul>
                     <form name="top-search-form" class="d-flex my-2 my-lg-0" action="/search" method="GET">

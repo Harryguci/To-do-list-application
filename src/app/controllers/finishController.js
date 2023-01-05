@@ -4,7 +4,7 @@ class finishController {
   // [GET] /finish
   // Show all the works, which had finished.
   show = (req, res, next) => {
-    Work.find({ finished: true })
+    Work.find({ finished: true, user: req.user.username })
       .then((arr) => {
         arr = Array.from(arr);
         arr = arr.map((work) => (work = work.toObject()));
@@ -25,7 +25,12 @@ class finishController {
   // Set the finish property to true
   finishOne = async (req, res, next) => {
     var id = req.params.id;
-    Work.findOneAndUpdate({ _id: id }, { finished: "true" }, { new: true })
+    Work.findOneAndUpdate(
+      { user: req.user.username },
+      { _id: id },
+      { finished: "true" },
+      { new: true }
+    )
       .then((work) => {
         res.redirect("back");
       })
