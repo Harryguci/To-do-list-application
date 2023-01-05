@@ -48,7 +48,7 @@
 
     {{!-- Other external files --}}
     {{#each css}}
-    <link rel="stylesheet" href="./css/{{this}}">
+    <link rel="stylesheet" href="/css/{{this}}">
     {{/each}}
 
 </head>
@@ -56,7 +56,7 @@
 <body>
     {{#if notify}}
     <!-- Notification -->
-    <div class="top-bar m-0 p-0" style="background: rgb(240,50,50);">
+    <div class="top-bar m-0 p-0" style="background:rgb(255, 0, 0);">
         <div class="d-flex justify-content-center align-items-center py-1 h-100">
             <p class="my-auto d-block text-white my-auto" style="letter-spacing: 2px;">{{notify}}</p>
         </div>
@@ -98,12 +98,6 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a href="/finish" class="nav-link">Finish</a>
-                            {{!-- <a class="nav-link dropdown-toggle" href="/" id="dropdownFinish" data-bs-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">Finish</a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownFinish">
-                                <a class="dropdown-item fw-bold" href="/finish">History</a>
-                                <a class="dropdown-item fw-bold" href="/error">Other Feature..</a>
-                            </div> --}}
                         </li>
                     </ul>
                     <form name="top-search-form" class="d-flex my-2 my-lg-0" action="/search" method="GET">
@@ -116,15 +110,19 @@
                     </form>
                     <div class="p-2 bg-black rounded-3 bg-opacity-10 my-3 mx-md-2 my-md-0">
                         {{#if user.length}}
-                        <div class="d-flex account-container">
-                            <a href="/account" class="my-auto px-3 nav-link text-white d-flex">
-                                <span class="material-symbols-outlined my-auto d-block"
-                                    style="margin-right: 5px; font-size: 2rem;">
+                        <div class="nav-item dropdown align-items-center">
+                            <a class="nav-link dropdown-toggle dropdown-focus d-flex gap-1 my-auto text-white text-decoration-none"
+                                href="/" id="dropdownAccount" data-bs-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                <span class="material-symbols-outlined text-white d-block my-auto">
                                     account_circle
-                                </span>
-                                <b class="d-block my-auto">{{user}}</b>
+                                </span><b>{{user}}</b>
                             </a>
-                            <a href="/login/logout?notify=Đã đăng xuất" class="my-auto text-white">Logout</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownAccount">
+                                <a class="dropdown-item fw-bold" href="/account">Information</a>
+                                <a class="dropdown-item fw-bold" href="/account/setting">Setting</a>
+                                <a class="dropdown-item fw-bold" href="/login/logout?notify=Đã đăng xuất">Logout</a>
+                            </div>
                         </div>
                         {{else}}
                         <a href="/login" class="px-3 nav-link text-white">Login</a>
@@ -168,7 +166,8 @@
                                 dashboard
                             </span>
                             <span class="mx-2">
-                                <a href="https://www.facebook.com/chu.huy.020808/">fb.com/chu.huy.020808/</a>
+                                <a target="_blank"
+                                    href="https://www.facebook.com/chu.huy.020808/">fb.com/chu.huy.020808/</a>
                             </span>
                         </li>
                         <li class="footer__item d-flex align-items-center">
@@ -176,7 +175,7 @@
                                 wysiwyg
                             </span>
                             <span class="mx-2">
-                                <a href="https://github.com/Harryguci">github.com/Harryguci</a>
+                                <a target="_blank" href="https://github.com/Harryguci">github.com/Harryguci</a>
                             </span>
                         </li>
                         <li class="footer__item d-flex align-items-center">
@@ -236,13 +235,13 @@
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"
     defer></script>
 
-<script src="./javascript/navbar.js" defer></script>
-<script type="module" src="./javascript/notification.js" defer></script>
-<script type="module" src="./javascript/copybutton.js" defer></script>
+<script src="/javascript/navbar.js" defer></script>
+<script type="module" src="/javascript/notification.js" defer></script>
+<script type="module" src="/javascript/copybutton.js" defer></script>
 
 {{#if javascript}}
 {{#each javascript}}
-<script type="{{this.type}}" src="./javascript/{{this.file}}" defer></script>
+<script type="{{this.type}}" src="/javascript/{{this.file}}" defer></script>
 {{/each}}
 {{/if}}
 

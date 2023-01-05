@@ -1,23 +1,40 @@
-<div class="container my-5">
-    <div class="row justify-content-center">
-        <div class="col col-md-6">
+<div class="wrap center p-5">
+    <div class="content">
+        <div class="d-flex justify-content-between position-relative">
             <h1>Login</h1>
-            <form action="/login" method="POST">
-                <div class="mb-3">
-                    <label for="" class="form-label fw-bold">Username</label>
-                    <input type="text" class="form-control" name="username" id="username"
-                        aria-describedby="username-help" placeholder="your account">
-                    <small id="username-help" class="form-text text-muted">Username must validate</small>
+            <button class="btn help-card-btn" data-card="help-card-login">
+                <span class="material-symbols-outlined">
+                    help
+                </span>
+            </button>
+            <div id="help-card-login" class="card card-help p-3 position-absolute"
+                style="">
+                <div class="card-content">
+                    <p><b>Username</b> phải có độ dài tối thiểu 3 ký tự (không bao gồm khoảng trắng)</p>
+                    <p><b>Password</b> phải có độ dài tối thiểu 5 ký tự (không bao gồm khoảng trắng)</p>
                 </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label fw-bold">Password</label>
-                    <input type="password" class="form-control" name="password" id="password" placeholder="">
-                </div>
-                <div class="btn-group">
-                    <button type="submit" class="btn btn-outline-primary px-4">Send</button>
-                    <a href="/login/sign-up" class="btn btn-outline-primary px-4">Sign Up</a>
-                </div>
-            </form>
+            </div>
         </div>
+        <form action="/login" method="POST">
+            <div class="mb-3">
+                <label for="" class="form-label fw-bold">Username</label>
+                <input type="text" class="form-control" name="username" id="username" aria-describedby="username-help"
+                    placeholder="your account">
+                <small id="username-help" class="form-text text-muted">Username must validate</small>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label fw-bold">Password</label>
+                <input type="password" class="form-control" name="password" id="password" placeholder="">
+                <small id="password-help" class="form-text text-muted"></small>
+            </div>
+            
+            <div class="btn-group d-flex mt-4">
+                <button type="submit" id="btn-submit" class="btn btn-outline-primary px-4 col-12 col-md-8">Send</button>
+                <a href="/login/sign-up" class="btn btn-outline-primary px-4 col-12 col-md-4">Sign Up</a>
+            </div>
+        </form>
     </div>
 </div>
+
+<a href="/about" class="btn text-white fw-bold fs-3 btn-custom"
+    style="position: absolute; bottom: 20px; right: 30px">ABOUT</a>

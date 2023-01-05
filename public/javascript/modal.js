@@ -11,13 +11,13 @@ $(document).ready(function () {
 
   $('button[data-target="#modalDelete"]').click(function (event) {
     // $(".modal-content").css("opacity", "1");
+    
+    var status = $(this).text().toLowerCase().trim();
     var currLink = $(this).attr("value");
     handleLink(currLink);
     $(".modal-content").css({
       opacity: "1",
     });
-
-    var status = $(this).text().toLowerCase().trim();
 
     switch (status) {
       case "delete":
@@ -27,7 +27,7 @@ $(document).ready(function () {
           "Delete"
         );
         break;
-      case "update":
+      case ("update", "edit"):
         setUpModal(
           "Update Message",
           "Do you want to move update page ?",
@@ -36,6 +36,10 @@ $(document).ready(function () {
         break;
       case "finished":
         setUpModal("Finish Message", "Have You Finished This Work ?", "Finish");
+        break;
+
+      case "logout":
+        setUpModal("Logout Message", "Do you want <b>Logout</b> ?", "Yes");
         break;
 
       default:

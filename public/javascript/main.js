@@ -8,4 +8,7 @@ notificationHandler(
   )}</b> công việc phải hoàn thành hôm nay`
 );
 
+const dropdownElementList = document.querySelectorAll('.dropdown-toggle')
+const dropdownList = [...dropdownElementList].map(dropdownToggleEl => new bootstrap.Dropdown(dropdownToggleEl))
+
 window.NotificationHandler = notificationHandler;

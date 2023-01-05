@@ -16,6 +16,7 @@ ol {
   list-style: none;
   padding: 0;
 }
+
 .nav-link {
   font-weight: bold;
 }
@@ -74,7 +75,10 @@ nav {
   color: #175b7e;
   background: #ffffff;
 }
-
+#dropdownAccount.dropdown-toggle::after {
+  display: block !important;
+  margin: auto 0 !important;
+}
 /* NAVIGATION : DROPDOWN MENU */
 nav .dropdown .dropdown-menu {
   border-radius: 0;
@@ -123,7 +127,7 @@ div:has(> .account-container) {
   overflow: hidden;
   transition: all 0.5s ease-in-out !important;
 }
-.account-container a:last-child {
+.account-container button:last-child {
   width: 0;
   text-decoration: none;
   opacity: 0;
@@ -131,7 +135,7 @@ div:has(> .account-container) {
   margin: 0;
   transition: all 0.3s ease-in-out;
 }
-.account-container:hover a:last-child {
+.account-container:hover button:last-child {
   opacity: 1;
   width: fit-content;
   margin: auto 10px;

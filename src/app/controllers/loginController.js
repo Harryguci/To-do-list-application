@@ -4,7 +4,8 @@ class loginController {
   show = (req, res, next) => {
     res.render("./login/login", {
       titlePage: "Login",
-      css: [],
+      css: ["login.css"],
+      javascript: [{ type: "module", file: "login.js" }],
     });
   };
 
@@ -12,6 +13,11 @@ class loginController {
   signUp = (req, res, next) => {
     res.render("./login/signUp", {
       titlePage: "Sign Up",
+      css: ["login.css"],
+      javascript: [
+        { type: "module", file: "login.js" },
+        { type: "module", file: "signUp.js" },
+      ],
     });
   };
 

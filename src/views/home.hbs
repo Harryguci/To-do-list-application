@@ -4,10 +4,14 @@
         <span class="date_now text-primary"></span>
         <script>
             var date_now = document.querySelector('.date_now');
-            date_now.innerHTML = new Date(Date.now()).toUTCString();
+            var html = new Date();
+            html = html.toString();
+            date_now.innerHTML = html;
 
             setInterval(() => {
-                date_now.innerHTML = new Date(Date.now()).toUTCString();
+                html = new Date();
+                html = html.toString();
+                date_now.innerHTML = html;
             }, 1000);
         </script>
     </div>
