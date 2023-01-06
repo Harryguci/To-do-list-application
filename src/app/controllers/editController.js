@@ -49,13 +49,15 @@ class editController {
         var ids = Array.from(req.body.id);
 
         for (var x of ids) {
+          console.log(x);
+
           await Work.findOneAndUpdate({ _id: x }, { delete: "true" })
             .then((work) => {
               console.log("Updated " + work._id);
+              res.redirect("back"); // back to the previous page.
             })
             .catch((err) => next(err));
         }
-        res.redirect("back"); // back to the previous page.
         break;
 
       case "finish":
@@ -66,10 +68,10 @@ class editController {
           await Work.findOneAndUpdate({ _id: x }, { finished: "true" })
             .then((work) => {
               console.log("Finished " + work._id);
+              res.redirect("back"); // back to the previous page.
             })
             .catch((err) => next(err));
         }
-        res.redirect("back"); // back to the previous page.
         break;
 
       default:

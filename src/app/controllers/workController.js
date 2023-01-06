@@ -75,7 +75,6 @@ class WorkController {
     var currentUser;
 
     if (req.user) currentUser = req.user.username;
-    console.log("USER: ", currentUser);
     Promise.all([handleWorksToday, handleWorksAll]).then((result) => {
       {
         if (result.length == 2 && result[0] && result[1]) {

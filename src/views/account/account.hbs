@@ -7,7 +7,7 @@
                     mail
                 </span>
                 {{!-- {{user.email}} --}}
-                <button class="btn copyButton" value="Harryguci@gmail.com">Harryguci@gmail.com</button>
+                <button class="btn copyButton" value="{{userCurrent.email}}">{{userCurrent.email}}</button>
             </span>
         </div>
     </div>
@@ -24,8 +24,6 @@
                                         for="username">Username</label>
                                     <input class="form-control" type="text" name="username"
                                         value="{{userCurrent.username}}" disabled>
-                                    <button type="button" class="btn btn-change text-decoration-underline text-primary"
-                                        data-btn-change="username">Change</button>
                                 </div>
                             </li>
                             <li>

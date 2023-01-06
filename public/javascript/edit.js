@@ -3,12 +3,19 @@ import randNumber from "./random.js";
 /*
   Handle select type [delete] or [finish]
 */
+$("#submit-all-btn").prop("disabled", true);
 $("#type_edit").change(function (e) {
   console.log($(this).val());
 
+  $("#submit-all-btn").prop("disabled", false);
   if ($(this).val()) {
     $(".form-check").css("display", "block");
-    $("#submit-all-btn").prop("disabled", false);
+    var inputs = $('input[type="checkbox"]:checked');
+    if (!inputs.length) {
+      $("#submit-all-btn").prop("disabled", true);
+    } else {
+      $("#submit-all-btn").prop("disabled", false);
+    }
     $(".item .rectangle").addClass("d-none");
   } else {
     $(".form-check").css("display", "none");
@@ -60,3 +67,18 @@ $(document).ready(function () {
     });
   }
 });
+
+// Check input
+var inputs = document.querySelectorAll('input[type="checkbox"]');
+
+for (var i = 0; i < inputs.length; i++) {
+  inputs[i].addEventListener("change", function (event) {
+    console.log("change input");
+    var inputs = $('input[type="checkbox"]:checked');
+    if (inputs.length) {
+      $("#submit-all-btn").prop("disabled", false);
+    } else {
+      $("#submit-all-btn").prop("disabled", true);
+    }
+  });
+}
