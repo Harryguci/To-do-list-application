@@ -1,3 +1,7 @@
 .vscode
 
 temp.html
+
+node_modules
+
+.gitignore
