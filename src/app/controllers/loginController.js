@@ -6,6 +6,7 @@ class loginController {
       titlePage: "Login",
       css: ["login.css"],
       javascript: [{ type: "module", file: "login.js" }],
+      notify: req.query.notify,
     });
   };
 
@@ -18,6 +19,7 @@ class loginController {
         { type: "module", file: "login.js" },
         { type: "module", file: "signUp.js" },
       ],
+      notify: req.query.notify,
     });
   };
 

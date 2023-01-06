@@ -71,26 +71,22 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                {{#each works}}
                                 <tr class="">
-                                    <td scope="row">1</td>
-                                    <td>name</td>
-                                    <td>12:12 12/12/2023</td>
-                                    <td>Some contents</td>
+                                    <td scope="row"></td>
+                                    <td>{{this.title}}</td>
+                                    <td>{{this.hour}} {{this.date}}/{{this.month}}/{{this.year}}</td>
+                                    <td>{{this.content}}</td>
                                 </tr>
-                                <tr class="">
-                                    <td scope="row">2</td>
-                                    <td>name</td>
-                                    <td>12:12 12/12/2023</td>
-                                    <td>Some contents</td>
-                                </tr>
-                                <tr class="">
-                                    <td scope="row">3</td>
-                                    <td>name</td>
-                                    <td>12:12 12/12/2023</td>
-                                    <td>Some contents</td>
-                                </tr>
+                                {{/each}}
                             </tbody>
                         </table>
+                        <script>
+                            var TT = document.querySelectorAll("td:first-child");
+                            for (var i = 0; i < TT.length; i++) {
+                                TT[i].textContent = i + 1;
+                            }
+                        </script>
                     </div>
 
                 </div>

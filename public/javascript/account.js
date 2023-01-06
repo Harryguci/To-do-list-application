@@ -1,4 +1,3 @@
-var btnChange = document.querySelector(".btn-change");
 const btnChanges = document.querySelectorAll(".btn-change");
 
 const handleBtnChange = (index) => {

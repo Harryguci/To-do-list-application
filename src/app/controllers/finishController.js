@@ -22,19 +22,22 @@ class finishController {
   };
 
   // [GET] /finish/:id
-  // Set the finish property to true
+  // Set the "finish" property to true (in "Work" Modal)
   finishOne = async (req, res, next) => {
     var id = req.params.id;
-    Work.findOneAndUpdate(
-      { user: req.user.username },
-      { _id: id },
-      { finished: "true" },
-      { new: true }
-    )
-      .then((work) => {
-        res.redirect("back");
-      })
-      .catch((err) => next(err));
+    if (id) {
+      Work.findOneAndUpdate({ _id: id }, { finished: "true" }, { new: true })
+        .then((work) => {
+          res.redirect("back");
+        })
+        .catch((err) => {
+          var notify = "Không tìm thấy công việc này.";
+          res.redirect("/?notify=" + notify);
+        });
+    } else {
+      var notify = "Không tìm thấy công việc này.";
+      res.redirect("/?notify=" + notify);
+    }
   };
 }
 
