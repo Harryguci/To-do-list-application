@@ -15,23 +15,25 @@ function validatePassword(password) {
 }
 
 function handleSubmitButton() {
+  console.log("Changing input field");
+
   if (!validateUsername(inputUsername.value)) {
     btnSubmit.disabled = true;
     document.querySelector("#username-help").innerHTML =
-      "Username không đúng định dạng";
+      '<span class="text-danger">Username không đúng định dạng</span>';
     return;
   }
   document.querySelector("#username-help").innerHTML =
-    "Username được chấp nhận";
+    '<span class="text-primary">Username được chấp nhận</span>';
 
   if (!validatePassword(inputPassword.value)) {
     btnSubmit.disabled = true;
     document.querySelector("#password-help").innerHTML =
-      "Password không đúng định dạng";
+      '<span class="text-danger">Password không đúng định dạng</span>';
     return;
   }
   document.querySelector("#password-help").innerHTML =
-    "Password được chấp nhận";
+    '<span class="text-primary">Password được chấp nhận</span>';
 
   btnSubmit.disabled = false;
 
@@ -56,4 +58,3 @@ document.querySelector(".help-card-btn").addEventListener("click", function () {
 
 inputUsername.addEventListener("keyup", handleSubmitButton);
 inputPassword.addEventListener("keyup", handleSubmitButton);
-

@@ -10,6 +10,8 @@ const aboutRouter = require("./about");
 const searchRouter = require("./search");
 const editRouter = require("./edit");
 const loginRouter = require("./login");
+const accountRouter = require("./account");
+
 const isAuthenticated = require("../middleware/isAuthenticated"); // middleware for authenticating users
 const isLogin = require("../middleware/isLogin");
 // Create a new work
@@ -34,6 +36,9 @@ router.use("/about", aboutRouter);
 
 // Login
 router.use("/login", loginRouter);
+
+// Account
+router.use("/account", isAuthenticated, accountRouter);
 
 // Show all works
 router.get("/all/json", WorkController.showAllJson);

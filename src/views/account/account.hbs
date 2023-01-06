@@ -1,0 +1,148 @@
+<div class="container" style="margin: 70px auto;">
+    <div class="row">
+        <div class="d-flex justify-content-between">
+            <h1 class="fw-bold col-10 heading-page" style="font-size: 5rem;">ACCOUNT</h1>
+            <span class="email-top d-flex col-2 justify-content-start align-items-center text-primary">
+                <span class="material-symbols-outlined">
+                    mail
+                </span>
+                {{!-- {{user.email}} --}}
+                <button class="btn copyButton" value="Harryguci@gmail.com">Harryguci@gmail.com</button>
+            </span>
+        </div>
+    </div>
+    <div class="row my-5">
+        <div class="col-12 col-sm-6 col-md-8">
+            <div class="row">
+                <form action="/account" method="POST">
+                    <div class="information">
+                        <h3>Your information</h3>
+                        <ul class="information-list">
+                            <li>
+                                <div class="d-flex justify-content-start align-items-center">
+                                    <label class="fs-5 col-1 col-md-2" style="margin-right: 20px;"
+                                        for="username">Username</label>
+                                    <input class="form-control" type="text" name="username"
+                                        value="{{userCurrent.username}}" disabled>
+                                    <button type="button" class="btn btn-change text-decoration-underline text-primary"
+                                        data-btn-change="username">Change</button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex justify-content-start align-items-center">
+                                    <label class="fs-5 col-1 col-md-2" style="margin-right: 20px;"
+                                        for="username">Password</label>
+                                    <input class="form-control" type="password" name="password"
+                                        value="{{userCurrent.password}}" disabled>
+                                    <button type="button" class="btn btn-change text-decoration-underline text-primary"
+                                        data-btn-change="password">Change</button>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="d-flex justify-content-start align-items-center">
+                                    <label class="fs-5 col-1 col-md-2" style="margin-right: 20px;"
+                                        for="username">Email</label>
+                                    <input class="form-control" type="text" name="email" value="{{userCurrent.email}}"
+                                        disabled>
+                                    <button type="button" class="btn btn-change text-decoration-underline text-primary"
+                                        data-btn-change="email">Change</button>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="d-flex justify-content-end my-5">
+                            <button class="btn btn-outline-primary py-2 px-4 rounded-0" type="submit">Save
+                                change</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="row my-5">
+                <div class="history">
+                    <div class="table-responsive-md">
+                        <table class="table table-bordered">
+                            <thead class="" style=";">
+                                <tr class="align-items-center">
+                                    <th class="position-relative py-4" scope="col" style="position: relative;">
+                                        <span class="">TT</span>
+                                    </th>
+                                    <th class="position-relative py-4" scope="col">Name work</th>
+                                    <th class="position-relative py-4" scope="col">Time</th>
+                                    <th class="position-relative py-4" scope="col">Content</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="">
+                                    <td scope="row">1</td>
+                                    <td>name</td>
+                                    <td>12:12 12/12/2023</td>
+                                    <td>Some contents</td>
+                                </tr>
+                                <tr class="">
+                                    <td scope="row">2</td>
+                                    <td>name</td>
+                                    <td>12:12 12/12/2023</td>
+                                    <td>Some contents</td>
+                                </tr>
+                                <tr class="">
+                                    <td scope="row">3</td>
+                                    <td>name</td>
+                                    <td>12:12 12/12/2023</td>
+                                    <td>Some contents</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4">
+            <div class="avatar-container position-relative">
+                <a target="_blank"
+                    href="https://ih1.redbubble.net/image.1156541093.1207/flat,750x,075,f-pad,750x1000,f8f8f8.jpg"
+                    class="thumbnail">
+                    <img src="https://ih1.redbubble.net/image.1156541093.1207/flat,750x,075,f-pad,750x1000,f8f8f8.jpg"
+                        alt="{{userCurrent.username}}">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-md-3 position-relative">
+            <a href="/login/logout" class="btn btn-outline-primary px-5 py-3 rounded-0 fs-4" onmousemove="showToolTip()"
+                onmouseleave="hideToolTip()" title="Logout your current Account">Logout</a>
+            <div class="tool-tip bg-white position-absolute"
+                style="display: none;top: 0px; left: 200px; box-shadow: 3px 3px 15px rgba(0,0,0,0.1); width: max-content;"
+                data-tool-tip="Logout your current Account">
+                <p class="tool-tip__content my-auto p-3" style="max-width: 200px;">Logout current Account</p>
+            </div>
+            <script>
+                var tooltip = document.querySelector(`.tool-tip`);
+
+                function showToolTip() {
+                    tooltip.classList.add('d-block');
+                }
+
+                function hideToolTip() {
+                    tooltip.classList.remove('d-block');
+                }
+                window.showToolTip = showToolTip;
+            </script>
+        </div>
+    </div>
+    <div class="row">
+        <div class="more-app">
+            <ul class="app-list">
+                <li>
+                    <a href=""></a>
+                </li>
+                <li>
+                    <a href=""></a>
+                </li>
+                <li>
+                    <a href=""></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
