@@ -15,8 +15,8 @@ app.use(passport.session());
 
 app.use(require("flash")());
 app.use(express.json()); // instead for body-parser
-app.use(bodyParser.json()); // to support JSON-encoded bodie
-app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json()); // to support JSON-encoded bodie
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Setup view engine
 app.engine(".hbs", engine({ extname: ".hbs" }));

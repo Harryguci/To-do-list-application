@@ -1,142 +1,146 @@
-<div class="container-fluid container-md my-5">
-    <div class="row">
-        <h1>To Day</h1>
-        <span class="date_now text-primary"></span>
-        <script>
-            var date_now = document.querySelector('.date_now');
-            var html = new Date();
-            html = html.toString();
-            date_now.innerHTML = html;
-
-            setInterval(() => {
-                html = new Date();
+<div class="container-fluid container-md mb-5">
+    <section style="margin-top: 70px;">
+        <div class="row d-block mb-5">
+            <h1 class="heading-page">To Day</h1>
+            <span class="date_now text-primary"></span>
+            <script>
+                var date_now = document.querySelector('.date_now');
+                var html = new Date();
                 html = html.toString();
                 date_now.innerHTML = html;
-            }, 1000);
-        </script>
-    </div>
-    <div class="row mt-4 work-today-container" style="row-gap: 20px;" data-work-length="{{work_today.length}}">
-        {{#if work_today.length}}
-        {{#each work_today}}
-        <div class="col col-md-4 col-xl-3">
-            <div class="item item-show">
-                {{#if this.finished}}
-                <span class="badge rounded-0">Done</span>
-                {{/if}}
-                <div class="item__head">
-                    <h3>{{this.type}}</h3>
-                    <span>{{this.short_description}}</span>
-                </div>
-                <div class="item__content">
-                    <ul>
-                        <li>
-                            <b class="label">Title: </b>
-                            <p>{{this.title}}</p>
-                        </li>
-                        <li>
-                            <b class="label">Time: </b>
-                            <p><b>{{this.hour}}</b> {{this.date}}/{{this.month}}/{{this.year}}</p>
-                        </li>
-                        <li>
-                            <b class="label">Content: </b>
-                            <p>{{this.content}}</p>
-                        </li>
-                    </ul>
-                </div>
-                <div class="item__foot">
-                    <div class="btn-group" role="group" aria-label="Button group name">
-                        {{#if this.finished}}
-                        <button type="button" class="btn btn-outline-primary" data-toggle="modal"
-                            data-target="#modalDelete" value="/delete/{{this._id}}">
-                            Delete
-                        </button>
 
-                        {{else}}
-                        <button type="button" class="btn btn-outline-primary" data-toggle="modal"
-                            data-target="#modalDelete" value="/edit/{{this._id}}">
-                            Edit
-                        </button>
-                        <button type="button" class="btn btn-outline-primary" data-toggle="modal"
-                            data-target="#modalDelete" value="/finish/{{this._id}}">
-                            Finished
-                        </button>
+                setInterval(() => {
+                    html = new Date();
+                    html = html.toString();
+                    date_now.innerHTML = html;
+                }, 1000);
+            </script>
+        </div>
+        <div class="row mt-4 work-today-container" style="row-gap: 20px;" data-work-length="{{work_today.length}}">
+            {{#if work_today.length}}
+            {{#each work_today}}
+            <div class="col col-md-4 col-xl-3">
+                <div class="item item-show">
+                    {{#if this.finished}}
+                    <span class="badge rounded-0">Done</span>
+                    {{/if}}
+                    <div class="item__head">
+                        <h3>{{this.type}}</h3>
+                        <span>{{this.short_description}}</span>
+                    </div>
+                    <div class="item__content">
+                        <ul>
+                            <li>
+                                <b class="label">Title: </b>
+                                <p>{{this.title}}</p>
+                            </li>
+                            <li>
+                                <b class="label">Time: </b>
+                                <p><b>{{this.hour}}</b> {{this.date}}/{{this.month}}/{{this.year}}</p>
+                            </li>
+                            <li>
+                                <b class="label">Content: </b>
+                                <p>{{this.content}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="item__foot">
+                        <div class="btn-group" role="group" aria-label="Button group name">
+                            {{#if this.finished}}
+                            <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+                                data-target="#modalDelete" value="/delete/{{this._id}}">
+                                Delete
+                            </button>
 
-                        {{/if}}
+                            {{else}}
+                            <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+                                data-target="#modalDelete" value="/edit/{{this._id}}">
+                                Edit
+                            </button>
+                            <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+                                data-target="#modalDelete" value="/finish/{{this._id}}">
+                                Finished
+                            </button>
+
+                            {{/if}}
+                        </div>
                     </div>
                 </div>
             </div>
+            {{/each}}
+            {{else}}
+            <div class="w-100 h-100 d-flex justify-content-center align-items-center">
+                <h2 class="fs-1 fw-bold p-3 bg-info bg-opacity-25 rounded-2">Not found</h2>
+            </div>
+            {{/if}}
         </div>
-        {{/each}}
-        {{else}}
-        <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-            <h2 class="fs-1 fw-bold p-3 bg-info bg-opacity-25 rounded-2">Not found</h2>
+    </section>
+    <section>
+        <div class="row mt-5">
+            <h1 class="heading-section">All</h1>
+            <span class="date_now"></span>
+            <script>
+                var date_now = document.querySelector('.date_now');
+                date_now.innerHTML = Date.now().toStrings();
+            </script>
         </div>
-        {{/if}}
-    </div>
-    <div class="row mt-5">
-        <h1>All</h1>
-        <span class="date_now"></span>
-        <script>
-            var date_now = document.querySelector('.date_now');
-            date_now.innerHTML = Date.now().toStrings();
-        </script>
-    </div>
-    <div class="row mt-4" style="row-gap: 20px;">
-        {{#if work.length}}
-        {{#each work}}
-        <div class="col col-md-4 col-xl-3">
-            <div class="item item-show">
-                {{#if this.finished}}
-                <span class="badge rounded-0">Done</span>
-                {{/if}}
-                <div class="item__head">
-                    <h3>{{type}}</h3>
-                    <span>{{short_description}}</span>
-                </div>
-                <div class="item__content">
-                    <ul>
-                        <li>
-                            <b class="label">Title: </b>
-                            <p>{{title}}</p>
-                        </li>
-                        <li>
-                            <b class="label">Time: </b>
-                            <p>{{this.hour}} {{this.date}}/{{this.month}}/{{this.year}}</p>
-                        </li>
-                        <li>
-                            <b class="label">Content: </b>
-                            <p>{{content}}</p>
-                        </li>
-                    </ul>
-                </div>
-                <div class="item__foot">
-                    <div class="btn-group" role="group" aria-label="Button group name">
-                        {{#if this.finished}}
-                        <button type="button" class="btn btn-outline-primary" data-toggle="modal"
-                            data-target="#modalDelete" value="/delete/{{this._id}}">
-                            Delete
-                        </button>
-                        {{else}}
-                        <button type="button" class="btn btn-outline-primary" data-toggle="modal"
-                            data-target="#modalDelete" value="/edit/{{this._id}}">
-                            Edit
-                        </button>
-                        <button type="button" class="btn btn-outline-primary" data-toggle="modal"
-                            data-target="#modalDelete" value="/finish/{{this._id}}">
-                            Finished
-                        </button>
-                        {{/if}}
+        <div class="row mt-4" style="row-gap: 20px;">
+            {{#if work.length}}
+            {{#each work}}
+            <div class="col col-md-4 col-xl-3">
+                <div class="item item-show">
+                    {{#if this.finished}}
+                    <span class="badge rounded-0">Done</span>
+                    {{/if}}
+                    <div class="item__head">
+                        <h3>{{type}}</h3>
+                        <span>{{short_description}}</span>
+                    </div>
+                    <div class="item__content">
+                        <ul>
+                            <li>
+                                <b class="label">Title: </b>
+                                <p>{{title}}</p>
+                            </li>
+                            <li>
+                                <b class="label">Time: </b>
+                                <p>{{this.hour}} {{this.date}}/{{this.month}}/{{this.year}}</p>
+                            </li>
+                            <li>
+                                <b class="label">Content: </b>
+                                <p>{{content}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="item__foot">
+                        <div class="btn-group" role="group" aria-label="Button group name">
+                            {{#if this.finished}}
+                            <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+                                data-target="#modalDelete" value="/delete/{{this._id}}">
+                                Delete
+                            </button>
+                            {{else}}
+                            <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+                                data-target="#modalDelete" value="/edit/{{this._id}}">
+                                Edit
+                            </button>
+                            <button type="button" class="btn btn-outline-primary" data-toggle="modal"
+                                data-target="#modalDelete" value="/finish/{{this._id}}">
+                                Finished
+                            </button>
+                            {{/if}}
+                        </div>
                     </div>
                 </div>
             </div>
+            {{/each}}
+            {{else}}
+            <div class="w-100 h-100 d-flex justify-content-center align-items-center">
+                <h2 class="fs-1 fw-bold p-3 bg-info bg-opacity-25 rounded-2">Not found</h2>
+            </div>
+            {{/if}}
         </div>
-        {{/each}}
-        {{else}}
-        <div class="w-100 h-100 d-flex justify-content-center align-items-center">
-            <h2 class="fs-1 fw-bold p-3 bg-info bg-opacity-25 rounded-2">Not found</h2>
-        </div>
-        {{/if}}
-    </div>
+    </section>
 </div>
 
 <script type="module" src="/javascript/modal.js" defer></script>

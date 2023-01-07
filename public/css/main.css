@@ -17,6 +17,17 @@ ol {
   padding: 0;
 }
 
+.heading-page {
+  font-size: 5rem;
+  color: rgb(50, 50, 200);
+}
+.heading-section {
+  font-size: 3rem;
+  color: rgb(50, 50, 200);
+}
+main section {
+  margin: 100px 0;
+}
 .nav-link {
   font-weight: bold;
 }
@@ -151,15 +162,24 @@ input[type="checkbox"] {
   transition: all 0.5s ease-in-out;
   background: none !important;
   box-shadow: none !important;
+  border: none;
   animation: modal-show 0.5s ease-in-out both !important;
+}
+.modal-header {
+  background: rgb(70, 70, 150);
 }
 .modal-content {
   transition: all 0.5s ease-in-out;
+  font-weight: bold;
   border-radius: 30px 5px 30px 5px !important;
+}
+.modal-footer {
+  border: none;
 }
 .modal-backdrop {
   transition: all 0.5s ease-in-out;
 }
+
 @keyframes modal-show {
   0% {
     opacity: 0;
@@ -178,6 +198,14 @@ input[type="checkbox"] {
     transform: translate(-50%, -40%);
   }
 }
+
+.btn-secondary {
+  background: rgb(70, 70, 100);
+}
+.btn-secondary:hover {
+  background: rgb(50, 50, 80);
+}
+
 .center {
   position: fixed;
   top: 50%;

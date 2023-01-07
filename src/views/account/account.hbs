@@ -1,4 +1,4 @@
-<div class="container" style="margin: 70px auto;">
+<div class="container" style="">
     <div class="row">
         <div class="d-flex justify-content-between">
             <h1 class="fw-bold col-10 heading-page" style="font-size: 5rem;">ACCOUNT</h1>
@@ -14,7 +14,7 @@
     <div class="row my-5">
         <div class="col-12 col-sm-6 col-md-8">
             <div class="row">
-                <form action="/account" method="POST">
+                <form name="account" action="/account" method="POST" onsubmit="handleUpdateAccountSubmit(event)">
                     <div class="information">
                         <h3>Your information</h3>
                         <ul class="information-list">
@@ -22,16 +22,37 @@
                                 <div class="d-flex justify-content-start align-items-center">
                                     <label class="fs-5 col-1 col-md-2" style="margin-right: 20px;"
                                         for="username">Username</label>
-                                    <input class="form-control" type="text" name="username"
-                                        value="{{userCurrent.username}}" disabled>
+                                    <div class="w-100">
+                                        <input class="form-control w-100" type="text" name="username"
+                                            value="{{userCurrent.username}}" title="Can not change Username" disabled>
+                                        <small class="d-block mt-2" style="color: rgb(255, 100, 100);">Can not change
+                                            your Username</small>
+                                    </div>
                                 </div>
                             </li>
                             <li>
                                 <div class="d-flex justify-content-start align-items-center">
-                                    <label class="fs-5 col-1 col-md-2" style="margin-right: 20px;"
-                                        for="username">Password</label>
-                                    <input class="form-control" type="password" name="password"
-                                        value="{{userCurrent.password}}" disabled>
+                                    <label class="fs-5 col-1 col-md-2" style="margin-right: 20px;" for="oldPassword">
+                                        Old Password
+                                    </label>
+                                    <div class="w-100">
+                                        <input class="form-control w-100" type="password" name="oldPassword" value=""
+                                            placeholder="******" required>
+                                        <small class="d-block mt-2" style="color: rgb(255, 100, 100);">Old Password is
+                                            required</small>
+                                    </div>
+                                    {{!-- <button type="button"
+                                        class="btn btn-change text-decoration-underline text-primary"
+                                        data-btn-change="oldPassword">Change</button> --}}
+                                </div>
+
+                            </li>
+                            <li>
+                                <div class="d-flex justify-content-start align-items-center">
+                                    <label class="fs-5 col-1 col-md-2" style="margin-right: 20px;" for="password">New
+                                        Password</label>
+                                    <input class="form-control" type="password" name="password" value=""
+                                        placeholder="******" disabled>
                                     <button type="button" class="btn btn-change text-decoration-underline text-primary"
                                         data-btn-change="password">Change</button>
                                 </div>
@@ -70,11 +91,11 @@
                             </thead>
                             <tbody>
                                 {{#each works}}
-                                <tr class="">
-                                    <td scope="row"></td>
-                                    <td>{{this.title}}</td>
-                                    <td>{{this.hour}} {{this.date}}/{{this.month}}/{{this.year}}</td>
-                                    <td>{{this.content}}</td>
+                                <tr>
+                                    <td class=""></td>
+                                    <td class="">{{this.title}}</td>
+                                    <td class="">{{this.hour}} {{this.date}}/{{this.month}}/{{this.year}}</td>
+                                    <td class="">{{this.content}}</td>
                                 </tr>
                                 {{/each}}
                             </tbody>
@@ -99,10 +120,32 @@
                         alt="{{userCurrent.username}}">
                 </a>
             </div>
+            <div class="position-relative d-flex justify-content-center mt-5">
+                <a href="/login/logout" class="btn btn-outline-primary px-5 py-3 rounded-0 fs-4 d-block"
+                    onmousemove="showToolTip()" onmouseleave="hideToolTip()"
+                    title="Logout your current Account">Logout</a>
+                <div class="tool-tip bg-white position-absolute"
+                    style="display: none;bottom: -70px; left: 0px; right: 0px; box-shadow: 3px 3px 15px rgba(0,0,0,0.1); width: max-content;"
+                    data-tool-tip="Logout your current Account">
+                    <p class="tool-tip__content my-auto p-3" style="max-width: 200px;">Logout current Account</p>
+                </div>
+                <script>
+                    var tooltip = document.querySelector(`.tool-tip`);
+
+                    function showToolTip() {
+                        tooltip.classList.add('d-block');
+                    }
+
+                    function hideToolTip() {
+                        tooltip.classList.remove('d-block');
+                    }
+                    window.showToolTip = showToolTip;
+                </script>
+            </div>
         </div>
     </div>
     <div class="row">
-        <div class="col col-md-3 position-relative">
+        {{!-- <div class="col col-md-3 position-relative">
             <a href="/login/logout" class="btn btn-outline-primary px-5 py-3 rounded-0 fs-4" onmousemove="showToolTip()"
                 onmouseleave="hideToolTip()" title="Logout your current Account">Logout</a>
             <div class="tool-tip bg-white position-absolute"
@@ -122,7 +165,7 @@
                 }
                 window.showToolTip = showToolTip;
             </script>
-        </div>
+        </div> --}}
     </div>
     <div class="row">
         <div class="more-app">

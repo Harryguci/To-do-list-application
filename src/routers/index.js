@@ -47,7 +47,7 @@ router.get("/", isAuthenticated, WorkController.show);
 router.get(
   "/:slug",
   (req, res, next) => {
-    console.log(req.user === undefined);
+    // console.log(req.user === undefined);
     if (req.user) {
       next();
     }

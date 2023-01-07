@@ -1,22 +1,22 @@
 const LocalStrategy = require("passport-local").Strategy;
 const passport = require("passport");
 const User = require("../app/models/User");
-const bCrypt = require("bcrypt");
 const session = require("express-session");
 const express = require("express");
 const app = express();
+
+const {isValidPassword, createHash} = require('./hashPassword');
 
 app.use(session({ secret: "mySecretKey" }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-var isValidPassword = function (user, password) {
-  return bCrypt.compareSync(password, user.password);
-};
-var createHash = function (password) {
-  return bCrypt.hashSync(password, bCrypt.genSaltSync(10), null);
-};
-
+// var isValidPassword = function (user, password) {
+//   return bCrypt.compareSync(password, user.password);
+// };
+// var createHash = function (password) {
+//   return bCrypt.hashSync(password, bCrypt.genSaltSync(10), null);
+// };
 
 // Login middleware
 passport.use(
@@ -81,8 +81,8 @@ passport.use(
             newUser.username = username;
             newUser.password = createHash(password);
             newUser.email = req.param("email");
-            newUser.firstName = req.param("firstName");
-            newUser.lastName = req.param("lastName");
+            // newUser.firstName = req.param("firstName");
+            // newUser.lastName = req.param("lastName");
             // save the user
             newUser.save(function (err) {
               if (err) {
