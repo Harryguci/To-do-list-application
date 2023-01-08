@@ -8,7 +8,7 @@
     <li>View works, which have to finish today</li>
     <li>Search a Work</li>
     <li>Check history of works, which finished</li>
-    <li>Manage account (Create, Update)</li>
+    <li>Manage account (Login, Sign Up, Change)</li>
 </ul>
 
 <h2>The application has been built with Node JS (Express)</h2>
