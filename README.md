@@ -8,6 +8,7 @@
     <li>View works, which have to finish today</li>
     <li>Search a Work</li>
     <li>Check history of works, which finished</li>
+    <li>Manage account (Create, Update)</li>
 </ul>
 
 <h2>The application has been built with Node JS (Express)</h2>
@@ -29,6 +30,7 @@
     <li>Node js</li>
     <li>Express</li>
     <li>Nodemon</li>
+    <li>Passport express</li>
     <li>Handlebars template engine</li>
     <li>Bootstrap 5</li>
     <li>Mongoose</li>
