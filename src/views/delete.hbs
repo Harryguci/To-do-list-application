@@ -64,7 +64,11 @@
     </div>
     {{/each}}
     {{#if empty}}
-    <h1 class="center p-4 bg-info rounded-3 bg-opacity-25">Nothing At Here</h1>
+    <div class="row justify-content-center">
+        <div class="col col-md-6">
+            <h1 class="p-4 bg-info rounded-3 bg-opacity-25 text-center">Nothing At Here</h1>
+        </div>
+    </div>
     {{/if}}
     <script type="module" src="./javascript/delete.js" defer></script>
     <script type="module" src="./javascript/edit.js" defer></script>
