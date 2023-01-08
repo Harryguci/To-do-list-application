@@ -75,7 +75,7 @@ document
   .addEventListener("click", function (event) {
     event.preventDefault();
     console.log("SUBMIT");
-    
+
     document.querySelector(`form[name="account"`).submit();
   });
 

@@ -36,22 +36,22 @@ function checkFormSub(event) {
   if (hour.value === "ERROR") {
     event.preventDefault();
     alert("Time is not valid");
-    return;
+    return false;
   }
   if (document.querySelector('input[name="date"]').value === "") {
     event.preventDefault();
     alert("Date is not valid");
-    return;
+    return false;
   }
   if (document.querySelector('input[name="month"]').value === "") {
     event.preventDefault();
     alert("Month is not valid");
-    return;
+    return false;
   }
   if (document.querySelector('input[name="year"]').value === "") {
     event.preventDefault();
     alert("Year is not valid");
-    return;
+    return false;
   }
   if (
     document.querySelector('select[name="type"]').value === null ||
@@ -59,9 +59,13 @@ function checkFormSub(event) {
   ) {
     event.preventDefault();
     alert("Type of work is not valid");
-    return;
+    return false;
   }
+  return true;
+  // The form is Validate. Then submit!
 }
 
 hour.addEventListener("focusout", checkValidate);
 window.checkFormSub = checkFormSub;
+
+export default checkFormSub;

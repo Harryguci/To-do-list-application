@@ -2,6 +2,8 @@ var inputUsername = document.querySelector('input[name="username"]');
 var inputPassword = document.querySelector('input[name="password"]');
 var inputEmail = document.querySelector('input[name="email"]');
 var btnSubmit = document.getElementById("btn-submit");
+var haveReadTermCheckbox = document.getElementById("haveReadTermCheckbox");
+
 btnSubmit.disabled = true;
 
 const validateEmail = (email) => {
@@ -52,6 +54,17 @@ function handleSubmitButton() {
       '<span class="text-primary">Email is validate</span>';
   }
 
+  if (haveReadTermCheckbox) {
+    console.log("Checkbox value: ", haveReadTermCheckbox.value);
+    if (!haveReadTermCheckbox.checked) {
+      btnSubmit.disabled = true;
+      document.querySelector("#term-help").innerHTML =
+        '<span class="text-danger">You must read the term !!</span>';
+      return;
+    }
+    document.querySelector("#term-help").innerHTML = "";
+  }
+
   btnSubmit.disabled = false;
 }
 
@@ -73,3 +86,4 @@ document.querySelector(".help-card-btn").addEventListener("click", function () {
 inputUsername.addEventListener("keyup", handleSubmitButton);
 inputPassword.addEventListener("keyup", handleSubmitButton);
 inputEmail.addEventListener("keyup", handleSubmitButton);
+haveReadTermCheckbox.addEventListener("change", handleSubmitButton);

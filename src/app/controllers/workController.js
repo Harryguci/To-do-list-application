@@ -83,7 +83,8 @@ class WorkController {
 
           res.render("home", {
             titlePage: "Home page",
-            css: [`home.css`],
+            css: [`home.css`, 'create.css'],
+            javascript: [{type: 'module', file: 'home.js'}],
             work,
             work_today,
             user: currentUser,

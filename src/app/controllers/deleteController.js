@@ -4,7 +4,10 @@ class deleteController {
   // [GET] /delete
   show = (req, res, next) => {
     try {
-      Work.find({ delete: "true" }).then((arr) => {
+      const Query = Work.where({ user: req.user.username }).where({
+        delete: "true",
+      });
+      Query.find({}).then((arr) => {
         arr = Array.from(arr);
         arr = arr.map((doc) => (doc = doc.toObject()));
         res.render("delete", {

@@ -42,7 +42,7 @@ async function notificationHandler(title, content) {
       })
     )
     .then(() => $(".notification-container").remove())
-    .then(() => console.log("SUCCESSFUL"))
+    // .then(() => console.log("SUCCESSFUL"))
     .catch((err) => alert(err));
 }
 

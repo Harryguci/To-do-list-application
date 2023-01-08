@@ -12,7 +12,7 @@ const isLogin = require("../middleware/isLogin");
 // });
 
 router.get("/fail", function (req, res) {
-  res.redirect("/login/sign-up?notify=Username đã tồn tại");
+  res.redirect("/login/sign-up?notify=Username is available");
 });
 
 router.get("/sign-up", loginController.signUp);
@@ -32,7 +32,7 @@ router.post(
   "/sign-up",
   passport.authenticate("signup", {
     failureRedirect: "/login/fail",
-    successRedirect: `/login?notify="Đăng ký thành công"`,
+    successRedirect: `/login?notify="Sign Up new user successfully"`,
   })
 );
 

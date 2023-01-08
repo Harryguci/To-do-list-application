@@ -1,0 +1,13 @@
+body {
+  background: rgb(50, 50, 100);
+}
+h1 {
+  text-transform: uppercase;
+}
+.wrap {
+  background: #ffffff;
+}
+input,
+textarea {
+  background: rgb(235, 235, 255);
+}

@@ -39,12 +39,15 @@
                 <small id="email-help" class="form-text text-muted">Email must be exist</small>
             </div>
             <div class="my-3">
-                <div class="form-check d-flex">
-                    <input class="form-check-input my-auto" type="checkbox" value="" id="defaultCheck1"
-                        style="transform: scale(0.6); transform-origin: center center;" required>
-                    <label class="form-check-label my-auto mx-1 d-block" for="defaultCheck1">
-                        Đã đọc kỹ điều khoản sử dụng
-                    </label>
+                <div class="form-check">
+                    <div class="d-flex">
+                        <input class="form-check-input my-auto" type="checkbox" value="" id="haveReadTermCheckbox"
+                            style="transform: scale(0.6); transform-origin: center center;" required>
+                        <label class="form-check-label my-auto mx-1 d-block" for="haveReadTermCheckbox">
+                            I have read the terms of use carefully.
+                        </label>
+                    </div>
+                    <small id="term-help" class="form-text text-muted"></small>
                 </div>
             </div>
             <div class="btn-group d-flex mt-4">

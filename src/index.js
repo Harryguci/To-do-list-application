@@ -29,6 +29,11 @@ db.connect();
 
 // Use static files (css, js, ...)
 app.use(express.static(path.join(__dirname, "..", "public")));
+app.use(
+  // Where "/scripts/js" is a folder into "public"
+  "/scripts/js",
+  express.static(path.join(__dirname, "node_modules/bootstrap/dist/js"))
+);
 
 app.use("/", router);
 

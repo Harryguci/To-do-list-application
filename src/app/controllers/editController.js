@@ -2,10 +2,9 @@ const Work = require("../models/Work");
 
 class editController {
   // [GET] /edit
-
   show = async function (req, res, next) {
     var count = await new Promise((resolve, reject) => {
-      Work.countDocuments({ delete: true })
+      Work.countDocuments({ delete: true, user: req.user.username })
         .then((count) => resolve(count))
         .catch((err) => reject(err));
     });
@@ -32,11 +31,33 @@ class editController {
     
   */
   editOndDocument = async (req, res, next) => {
-    res.render("Edit", {
-      user: req.user.username,
-      titlePage: "Edit page",
-      css: ["edit.css"],
-    });
+    Work.findOne({ _id: req.params.id })
+      .then((work) => {
+        console.log(work);
+        work = work.toObject();
+
+        res.render("./editById", {
+          user: req.user.username,
+          titlePage: "Edit page",
+          css: ["edit.css", "create.css", "editById.css"],
+          work: work,
+        });
+      })
+      .catch((err) => next(err));
+  };
+
+  // [POST] /edit/:id
+  saveChangeDocument = async (req, res, next) => {
+    if (req.body) {
+      var newWork = req.body;
+      Work.findOneAndUpdate({ _id: newWork._id }, newWork)
+        .then((work) => {
+          res.redirect("/?notify=Save the change successfully !");
+        })
+        .catch((error) => next(error));
+    } else {
+      res.redirect("/?notify=Something was wrong !");
+    }
   };
 
   // [POST] /edit/detail
@@ -44,6 +65,9 @@ class editController {
   // req.body : {id: .. ..}
   editDetail = async (req, res, next) => {
     // res.json(req.body);
+
+    var notify;
+
     switch (req.body.type_edit) {
       case "delete":
         var ids = Array.from(req.body.id);
@@ -53,8 +77,9 @@ class editController {
 
           await Work.findOneAndUpdate({ _id: x }, { delete: "true" })
             .then((work) => {
-              console.log("Updated " + work._id);
-              res.redirect("back"); // back to the previous page.
+              // console.log("Updated " + work._id);
+              notify = "Delete work(s) successfully";
+              res.redirect("/edit?notify=" + notify);
             })
             .catch((err) => next(err));
         }
@@ -67,8 +92,8 @@ class editController {
         for (var x of ids) {
           await Work.findOneAndUpdate({ _id: x }, { finished: "true" })
             .then((work) => {
-              console.log("Finished " + work._id);
-              res.redirect("back"); // back to the previous page.
+              notify = "Set Finish properties of work(s) successfully";
+              res.redirect("/edit?notify=" + notify);
             })
             .catch((err) => next(err));
         }
